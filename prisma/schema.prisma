@@ -1,0 +1,119 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("PG_PRISMA_URL")
+}
+
+generator pothos {
+  provider = "prisma-pothos-types"
+}
+
+model User {
+  id        String        @id @default(uuid())
+  email     String        @unique
+  username  String        @unique
+  name      String
+  location  String
+  role      Role          @default(GUID)
+  trips     Trip[]
+  details   UserDetails?
+  history   UserHistory[]
+  locations Location[]
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  Action    Action[]
+}
+
+model Action {
+  id         String     @id @default(uuid())
+  user       User       @relation(fields: [userId], references: [id])
+  trip       Trip       @relation(fields: [tripId], references: [id])
+  userId     String
+  tripId     String
+  actionType ActionType
+  createdAt  DateTime   @default(now())
+
+  @@unique([userId, tripId, actionType], name: "unique_user_trip_action")
+  @@index([userId], map: "idx_action_userId")
+  @@index([tripId], map: "idx_action_tripId")
+}
+
+model UserDetails {
+  id     String @id @default(uuid())
+  user   User   @relation(fields: [userId], references: [id])
+  userId String @unique
+  data   Json   @default("{}")
+}
+
+model UserHistory {
+  id        String   @id @default(uuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  data      Json     @default("{}")
+  createdAt DateTime @default(now())
+
+  @@index([userId], map: "idx_userHistory_userId")
+  @@index([createdAt], map: "idx_userHistory_createdAt")
+}
+
+model Location {
+  id          String   @id @default(uuid())
+  trips       Trip[]
+  author      User     @relation(fields: [authorId], references: [id])
+  authorId    String
+  title       String
+  country     String
+  lat         String?
+  long        String?
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([authorId], map: "idx_location_authorId")
+  @@index([country], map: "idx_location_country")
+}
+
+model Trip {
+  id           String       @id @default(uuid())
+  users        User[]
+  title        String
+  duration     Int          @default(1)
+  durationUnit String       @default("Day")
+  price        Int          @default(150)
+  priceUnit    String       @default("USD")
+  country      String
+  lat          String?
+  long         String?
+  description  String?
+  location     Location     @relation(fields: [locationId], references: [id])
+  locationId   String
+  details      TripDetails?
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  Action       Action[]
+
+  @@index([locationId], map: "idx_trip_locationId")
+  @@index([country], map: "idx_trip_country")
+}
+
+model TripDetails {
+  id     String @id @default(uuid())
+  trip   Trip   @relation(fields: [tripId], references: [id])
+  tripId String @unique
+  data   Json   @default("{}")
+}
+
+enum Role {
+  GUID
+  CLIENT
+  ADMIN
+}
+
+enum ActionType {
+  ACCEPTED
+  BOOKMARKED
+  DECLINED
+}
