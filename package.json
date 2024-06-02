@@ -17,6 +17,7 @@
     "@teamhanko/hanko-elements": "^0.11.0",
     "generated": "link:@pothos/plugin-prisma/generated",
     "graphql": "^16.8.1",
+    "graphql-scalars": "^1.23.0",
     "graphql-yoga": "^5.3.1",
     "jose": "^5.3.0",
     "next": "14.2.3",

@@ -4,14 +4,11 @@ import prisma from "../lib/prisma";
 import RelayPlugin from "@pothos/plugin-relay";
 import {createContext} from './context'
 import PrismaTypes from "@pothos/plugin-prisma/generated";
+import { DateResolver } from "graphql-scalars";
 
 export const builder = new SchemaBuilder<{
   PrismaTypes: PrismaTypes,
   Scalars: {
-    Json: {
-      Input: any;
-      Output: any;
-    };
     Date: {
       Input: Date;
       Output: Date;
@@ -20,15 +17,14 @@ export const builder = new SchemaBuilder<{
   Context: ReturnType<typeof createContext>,
 }>({
   plugins: [PrismaPlugin, RelayPlugin],
-  relayOptions: {
-    idFieldName:"id",
-    cursorType:"String",
-    clientMutationId:"omit",
-  },
+  relayOptions: {},
   prisma: {
     client: prisma,
   }
 })
+
+
+builder.addScalarType('Date', DateResolver);
 
 builder.queryType({
   fields: (t) => ({
@@ -37,5 +33,3 @@ builder.queryType({
     }),
   }),
 });
-
-builder.mutationType({})

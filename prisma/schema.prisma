@@ -12,19 +12,19 @@ generator pothos {
 }
 
 model User {
-  id        String        @id @default(uuid())
-  email     String        @unique
-  username  String        @unique
+  id        String       @id @default(uuid())
+  email     String       @unique
+  username  String       @unique
   name      String
   location  String
-  role      Role          @default(GUID)
+  role      Role         @default(GUID)
   trips     Trip[]
   details   UserDetails?
-  history   UserHistory[]
+  history   UserHistory?
   locations Location[]
-  createdAt DateTime      @default(now())
-  updatedAt DateTime      @updatedAt
-  Action    Action[]
+  action    Action[]
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
 }
 
 model Action {
@@ -51,7 +51,7 @@ model UserDetails {
 model UserHistory {
   id        String   @id @default(uuid())
   user      User     @relation(fields: [userId], references: [id])
-  userId    String
+  userId    String   @unique
   data      Json     @default("{}")
   createdAt DateTime @default(now())
 

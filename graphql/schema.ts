@@ -1,5 +1,4 @@
 import { builder } from "./builder";
-import "./types/Link"
-import "./types/User"
+import "@/models/User"
 
 export const schema = builder.toSchema()

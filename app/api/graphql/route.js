@@ -1,20 +1,40 @@
-import { createYoga } from "graphql-yoga";
-import { schema } from "./schema";
+import { createYoga } from 'graphql-yoga'
+import { schema } from '@/graphql/schema'
+import { createContext } from '@/graphql/context'
+import { run } from '@/models/User/seeder'
 
-const { handleRequest } = createYoga<{
-    req: NextApiRequest,
-    res: NextApiResponse
-}>({
+const { handleRequest } = createYoga({
     schema,
-    // While using Next.js file convention for routing, we need to configure Yoga to use the correct endpoint
-    graphqlEndpoint: "/api/graphql",
+    context: createContext,
+    graphqlEndpoint: '/api/graphql',
+    fetchAPI: { Response }
+})
 
-    // Yoga needs to know how to create a valid Next response
-    fetchAPI: { Response: Response },
-});
+run()
+    .catch(e => {
+        console.error(e)
+        process.exit(1)
+    })
+    .finally(async () => {
+        await prisma.$disconnect()
+    })
 
-export {
-    handleRequest as GET,
-    handleRequest as POST,
-    handleRequest as OPTIONS,
-};
+export { handleRequest as GET, handleRequest as POST, handleRequest as OPTIONS }
+
+
+
+// import { createYoga } from 'graphql-yoga'
+// import { createContext } from '@/graphql/context'
+// import { schema } from '@/graphql/schema'
+
+// export default createYoga ({
+//     schema,
+//     context: createContext,
+//     graphqlEndpoint: '/api/graphql'
+// })
+
+// export const config = {
+//     api: {
+//         bodyParser: false
+//     }
+// }
