@@ -8,10 +8,14 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} seed/global.ts"
+  },
   "dependencies": {
     "@apollo/client": "^3.10.4",
     "@pothos/core": "^3.41.1",
     "@pothos/plugin-prisma": "^3.65.2",
+    "@pothos/plugin-prisma-utils": "^0.14.0",
     "@pothos/plugin-relay": "^3.46.0",
     "@prisma/client": "5.14.0",
     "@teamhanko/hanko-elements": "^0.11.0",
@@ -26,6 +30,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@types/node": "^20.12.13",
     "@types/react": "^18",
     "@types/react-dom": "^18",

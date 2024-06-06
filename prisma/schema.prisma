@@ -22,24 +22,24 @@ model User {
   details   UserDetails?
   history   UserHistory?
   locations Location[]
-  action    Action[]
+  // action    Action[]
   createdAt DateTime     @default(now())
   updatedAt DateTime     @updatedAt
 }
 
-model Action {
-  id         String     @id @default(uuid())
-  user       User       @relation(fields: [userId], references: [id])
-  trip       Trip       @relation(fields: [tripId], references: [id])
-  userId     String
-  tripId     String
-  actionType ActionType
-  createdAt  DateTime   @default(now())
+// model Action {
+//   id         String     @id @default(uuid())
+//   user       User       @relation(fields: [userId], references: [id])
+//   trip       Trip       @relation(fields: [tripId], references: [id])
+//   userId     String
+//   tripId     String
+//   actionType ActionType
+//   createdAt  DateTime   @default(now())
 
-  @@unique([userId, tripId, actionType], name: "unique_user_trip_action")
-  @@index([userId], map: "idx_action_userId")
-  @@index([tripId], map: "idx_action_tripId")
-}
+//   @@unique([userId, tripId, actionType], name: "unique_user_trip_action")
+//   @@index([userId], map: "idx_action_userId")
+//   @@index([tripId], map: "idx_action_tripId")
+// }
 
 model UserDetails {
   id     String @id @default(uuid())
@@ -54,9 +54,6 @@ model UserHistory {
   userId    String   @unique
   data      Json     @default("{}")
   createdAt DateTime @default(now())
-
-  @@index([userId], map: "idx_userHistory_userId")
-  @@index([createdAt], map: "idx_userHistory_createdAt")
 }
 
 model Location {
@@ -71,9 +68,6 @@ model Location {
   description String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-
-  @@index([authorId], map: "idx_location_authorId")
-  @@index([country], map: "idx_location_country")
 }
 
 model Trip {
@@ -84,19 +78,13 @@ model Trip {
   durationUnit String       @default("Day")
   price        Int          @default(150)
   priceUnit    String       @default("USD")
-  country      String
-  lat          String?
-  long         String?
   description  String?
   location     Location     @relation(fields: [locationId], references: [id])
   locationId   String
   details      TripDetails?
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @updatedAt
-  Action       Action[]
-
-  @@index([locationId], map: "idx_trip_locationId")
-  @@index([country], map: "idx_trip_country")
+  // Action       Action[]
 }
 
 model TripDetails {

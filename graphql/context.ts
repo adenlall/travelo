@@ -9,6 +9,6 @@ export async function createContext() {
 
       return {
         id:'id',
-        email:'email'
+        email:'xcom@proton.me'
       }
 }

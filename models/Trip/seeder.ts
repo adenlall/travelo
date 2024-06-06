@@ -1,18 +1,10 @@
 import { PrismaClient } from '@prisma/client';
 const dd = [
   {
-    id: '9stttiid3232',
-    name: 'aden lall',
-    username: 'lalladen',
-    email: 'xcom@proton.me',
-    location: 'Casablanca, Morocco',
+    id: '9stttiid3232'
   },
   {
     id: 'e1f43m3iidb32',
-    name: 'janah bilal',
-    username: 'jnxx22',
-    email: 'tokyo@gmail.me',
-    location: 'Tokyo, Japan',
   },
 ];
 const prisma = new PrismaClient();
@@ -29,7 +21,9 @@ export function run() {
 }
 
 async function seed() {
-  await prisma.user.createMany({
-    data: dd
-  })
+//   await prisma.trip.create({
+//     data:{
+//         // users: "ss"
+//     }
+//   })
 }
