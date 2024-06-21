@@ -4,12 +4,12 @@ import { fa, faker } from "@faker-js/faker";
 const prisma = new PrismaClient();
 
 async function main() {
-    console.log("ujjjjjjjjjjjj");
+    console.log("\n");
+    console.log("USER SEED");
 
-    await prisma.tripDetails.deleteMany({});
     await prisma.trip.deleteMany({});
     await prisma.location.deleteMany({});
-    await prisma.userDetails.deleteMany({});
+    await prisma.profile.deleteMany({});
     await prisma.userHistory.deleteMany({});
     await prisma.user.deleteMany({});
 
@@ -17,28 +17,50 @@ async function main() {
 
     const users: User[] = [];
 
-    const name = {
-        firstName: faker.person.firstName(),
-        lastName: faker.person.lastName()
-    }
 
     const addUsers = async () => {
 
+        const name = {
+            firstName: faker.person.firstName(),
+            lastName: faker.person.lastName()
+        }
+
         const uuid = faker.string.uuid();
-        console.log("\n");
-        console.log("uuid : " + uuid);
-        console.log("\n");
 
         await prisma.user.create({
             data: {
                 id: uuid,
                 name: name.firstName + " " + name.lastName,
-                location: faker.location.city() + ", " + faker.location.country(),
                 role: "GUID",
                 username: faker.internet.userName(name) + faker.number.int({ max: 10000, min: 0 }),
                 email: faker.internet.email(name) + faker.number.int({ max: 10000, min: 0 }),
                 createdAt: faker.date.past(),
                 updatedAt: faker.date.recent(),
+                profile: {
+                    create: {
+                        id: faker.string.uuid(),
+                        details: { name: name },
+                        bio: faker.person.bio(),
+                        links: {
+                            website: faker.internet.url(),
+                            twitter: "@" + faker.internet.userName(name),
+                            others: [
+                                { name: "blog", url: faker.internet.url(), },
+                                { name: "second", url: faker.internet.url(), },
+                            ]
+                        },
+                        city: faker.location.city(),
+                        country: faker.location.country(),
+                        media: {
+                            video: faker.internet.url(),
+                            others: [
+                                faker.internet.url(),
+                                faker.internet.url(),
+                                faker.internet.url()
+                            ]
+                        }
+                    }
+                }
             }
         })
         await prisma.trip.create({
@@ -47,12 +69,6 @@ async function main() {
                 users: {
                     connect: {
                         id: uuid,
-                    }
-                },
-                details: {
-                    create: {
-                        id: faker.string.uuid(),
-                        data: {},
                     }
                 },
                 location: {

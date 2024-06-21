@@ -6,11 +6,6 @@ builder.prismaObject('User', {
     name: t.exposeString('name'),
     username: t.exposeString('username'),
     email: t.exposeString('email'),
-    location: t.exposeString('location'),
-
-    // role: t.expose(newLocal, { type: Role, }),
-
-    // action: t.relation("action"),
     trips: t.relation("trips", {
       args: {
         oldestFirst: t.arg.boolean(),
@@ -18,16 +13,17 @@ builder.prismaObject('User', {
       query: (args, context) => ({
         orderBy: {
           createdAt: args.oldestFirst ? 'asc' : 'desc',
-        }, 
+        },
       }),
     }),
     tripsConnection: t.relatedConnection('trips', {
       cursor: 'id',
     }),
     
-    // details: t.relation("details"),
-    // history: t.relation("history"),
-    // locations: t.relation("locations"),
+    profile: t.relation("profile"),
+
+    vues:t.exposeInt("vues"),
+    likes:t.exposeInt("likes"),
 
     createdAt: t.expose("createdAt", {
       type: "Date"
