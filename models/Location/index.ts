@@ -1,32 +1,49 @@
-import { builder } from "@/graphql/builder";
+import { builder } from "../../graphql/builder";
+import prisma from "../../lib/prisma";
+import "./mutation";
 
-builder.prismaObject('Location', {
-  fields: (t) => ({
-    id: t.exposeID('id'),
-
-    title: t.exposeString('title'),
-    description: t.exposeString('description', { nullable: true }),
-    country: t.exposeString('country'),
-    lat: t.exposeString('lat', { nullable: true }),
-    long: t.exposeString('long', { nullable: true }),
-
-    author: t.relation("author"),
-    trips: t.relation("trips"),
-
-    createdAt: t.expose("createdAt", {
-      type: "Date"
+builder.prismaNode("Location", {
+    select: {
+        id: true,
+    },
+    id: { resolve: (location) => String(location.id) },
+    findUnique: (id) => ({ id: id }),
+    nullable: true,
+    fields: t => ({
+        state: t.exposeString("state", { nullable: true }),
+        city: t.exposeString("city"),
+        country: t.exposeString("country"),
+        addresses: t.relatedConnection("addresses", {
+            cursor: 'id'
+        }),
+        profiles: t.relatedConnection('profiles', {
+            cursor: 'id',
+            args: {
+                oldestFirst: t.arg.boolean(),
+            },
+            query: (args, ctx) => ({
+                orderBy: {
+                    createdAt: args.oldestFirst ? 'asc' : 'desc',
+                },
+            }),
+        }),
+        trips: t.relatedConnection('trips', {
+            cursor: 'id',
+            args: {
+                oldestFirst: t.arg.boolean(),
+            },
+            query: (args, context) => ({
+                orderBy: {
+                    createdAt: args.oldestFirst ? 'asc' : 'desc',
+                },
+            }),
+        }),
     }),
-    updatedAt: t.expose("updatedAt", {
-      type: "Date"
-    })
-  })
 })
 
-builder.queryField('Location', (t) =>
-  t.prismaConnection({
-    type: 'Location',
-    cursor: 'id',
-    resolve: (query, _parent, _args, _ctx, _info) =>
-      prisma.location.findMany({ ...query })
-  })
+builder.queryField("Location", t =>
+    t.prismaField({
+        type: ["Location"],
+        resolve: async (_query: any, _parent: any, _args: any, _info: any) => prisma.location.findMany({}),
+    } as any)
 )

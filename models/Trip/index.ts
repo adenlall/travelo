@@ -1,40 +1,35 @@
-import { builder } from "@/graphql/builder";
+import { builder } from "../../graphql/builder";
+import prisma from "../../lib/prisma";
+import './mutation';
 
-builder.prismaObject('Trip', {
-  fields: (t) => ({
-    id: t.exposeID('id'),
-
-    title: t.exposeString('title'),
-    description: t.exposeString('description', {nullable:true}),
-    
-    details: t.expose("details", { type: "JSONObject", nullable: true }),
-    
-    vues:t.exposeInt("vues"),
-    likes:t.exposeInt("likes"),
-
-    duration: t.exposeInt('duration'),
-    price: t.exposeInt('price'),
-
-    durationUnit: t.exposeString('durationUnit'),
-    priceUnit: t.exposeString('priceUnit'),
-
-    users: t.relation("users"),
-    location: t.relation("location"),
-
-    createdAt: t.expose("createdAt", {
-      type: "Date"
+builder.prismaObject("Trip", {
+    select: {
+        id: true,
+    },
+    fields: t => ({
+        id: t.exposeString("id"),
+        title: t.exposeString("title"),
+        description: t.exposeString("description", { nullable: true }),
+        location: t.relation("location"),
+        users: t.field({
+            select: (args, ctx, nestedSelection) => ({
+                users: {
+                    select: {
+                        user: nestedSelection(true),
+                    },
+                },
+            }),
+            type: ["User"] as any,
+            resolve: (trip) => trip.users.map(({ user }) => user),
+            nullable: true,
+        })
     }),
-    updatedAt: t.expose("updatedAt", {
-      type: "Date"
-    })
-  })
 })
 
-builder.queryField('Trips', (t) =>
-  t.prismaConnection({
-    type: 'Trip',
-    cursor: 'id',
-    resolve: (query, _parent, _args, _ctx, _info) =>
-      prisma.trip.findMany({ ...query })
-  })
+
+builder.queryField("Trip", t =>
+    t.prismaField({
+        type: ["Trip"],
+        resolve: async (_query: any, _parent: any, _args: any, _info: any) => prisma.trip.findMany({}),
+    } as any)
 )

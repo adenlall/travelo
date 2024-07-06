@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Injury Tracker
 
-## Getting Started
+A web application to record and track the injuries reported by a person
 
-First, run the development server:
+This aplication shows how to implement a **fullstack app in TypeScript with :
+- [**Next.js**](https://nextjs.org/)**: A [React](https://reactjs.org/) framework
+- [**Apollo Client**](https://www.apollographql.com/docs/react/) (frontend), 
+- [**GraphQL Yoga**](https://the-guild.dev/graphql/yoga-server): GraphQL server
+- [**Pothos**](https://pothos-graphql.dev/): Code-first GraphQL schema definition library
+- [**Prisma Client**](https://www.prisma.io/docs/concepts/components/prisma-client): Databases access (ORM)
+- [**Prisma Migrate**](https://www.prisma.io/docs/concepts/components/prisma-migrate): Database migrations
+- [**postgres-prisma**](https://vercel.com/docs/storage/vercel-postgres): Vercel Postgres is a serverless SQL database
+- [**Ant Design**](https://ant.design): Ant Design is an enterprise-class UI design language and React UI library
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Getting started
+
+### Clone the entire repo and install dependencies
+
+Clone the entire repo:
+
+```
+git clone https://github.com/Aladdin4u/injury-tracking-system-nextJs.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install npm dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+cd injury-tracking-system-nextJs
+yarn install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Setting up environment variables
 
-## Learn More
+Once that's done, copy the .env.example file in this directory to .env (which will be ignored by Git):
 
-To learn more about Next.js, take a look at the following resources:
+```
+cp .env.example .env
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Obtain OAuth 2.0 credentials from the Google API Console
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Visit the [Google API Console](https://developers.google.com/identity/protocols/oauth2) to obtain OAuth 2.0 credentials such as a client ID and client secret that are known to both Google and your application.
 
-## Deploy on Vercel
+The "Authorized redirect URIs" used when creating the credentials must include your full domain and end in the callback path. For example;
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- For production: https://{YOUR_DOMAIN}/api/auth/callback/google
+- For development: http://localhost:3000/api/auth/callback/google
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Obtain postgres-prisma database URL
+
+Visit the [Vercel Dashboard](https://vercel.com/dashboard) 
+- Select the Storage tab
+- Click Create Database and enter your details
+- Once that's done, Select the .env.local tab
+- Copy **POSTGRES_PRISMA_URL** and **POSTGRES_URL_NON_POOLING** secret
+
+### Create and seed the database
+
+Run the following command to create your PostreSQL database file. This also creates the `User`, `Report` and `BodyMap` tables that are defined in [`prisma/schema.prisma`](./prisma/schema.prisma):
+
+```
+npx prisma migrate dev --name init
+```
+
+When `npx prisma migrate dev` is executed against a newly created database, seeding is also triggered. The seed file in [`prisma/seed.ts`](./prisma/seed.ts) will be executed and your database will be populated with the sample data.
+
+**Note:**
+To use SQLite or other Postgres Database check out [Prisma docs](https://www.prisma.io/docs/concepts/database-connectors/postgresql)
+
+### Start the app
+Once the environment variables is set
+
+```
+npm run dev
+```
+
+The app is now running, navigate to [`http://localhost:3000/`](http://localhost:3000/) in your browser to explore its UI.

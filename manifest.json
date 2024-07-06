@@ -1,0 +1,280 @@
+{
+  "documents": [
+    {
+      "fileName": "/home/adenlall/code/nextjs/injury/graphql/queries/user.ts",
+      "type": "query",
+      "operationName": "HelloUser",
+      "body": "query HelloUser {\n  Users {\n    name\n  }\n}",
+      "tag": "gql",
+      "templateLiteralNodeStart": {
+        "line": 2,
+        "character": 18
+      },
+      "templateLiteralNodeEnd": {
+        "line": 6,
+        "character": 2
+      },
+      "documentStart": {
+        "line": 2,
+        "character": 19
+      },
+      "documentEnd": {
+        "line": 6,
+        "character": 1
+      }
+    },
+    {
+      "fileName": "/home/adenlall/code/nextjs/injury/app/page.tsx",
+      "type": "query",
+      "operationName": "ANONYMOUS_QUERY",
+      "body": "{\n  Users {\n    name\n    email\n  }\n  report(id: 1) {\n    id\n  }\n}",
+      "tag": "gql",
+      "templateLiteralNodeStart": {
+        "line": 12,
+        "character": 29
+      },
+      "templateLiteralNodeEnd": {
+        "line": 20,
+        "character": 4
+      },
+      "documentStart": {
+        "line": 12,
+        "character": 30
+      },
+      "documentEnd": {
+        "line": 20,
+        "character": 3
+      }
+    },
+    {
+      "fileName": "/home/adenlall/code/nextjs/injury/pages.old/create.tsx",
+      "type": "mutation",
+      "operationName": "CreateReportMutation",
+      "body": "mutation CreateReportMutation($name: String!, $date: Date!, $email: String!, $bodymaps: [BodyMapInput!]!) {\n  createReport(name: $name, date: $date, bodymaps: $bodymaps, email: $email) {\n    id\n    name\n    date\n    bodymaps {\n      label\n      details\n    }\n    user {\n      id\n      name\n    }\n  }\n}",
+      "tag": "gql",
+      "templateLiteralNodeStart": {
+        "line": 14,
+        "character": 32
+      },
+      "templateLiteralNodeEnd": {
+        "line": 35,
+        "character": 1
+      },
+      "documentStart": {
+        "line": 14,
+        "character": 33
+      },
+      "documentEnd": {
+        "line": 35,
+        "character": 0
+      }
+    },
+    {
+      "fileName": "/home/adenlall/code/nextjs/injury/pages.old/profile.tsx",
+      "type": "query",
+      "operationName": "FeedQuery",
+      "body": "query FeedQuery($id: String!) {\n  profile(id: $id) {\n    id\n    name\n    date\n    createdAt\n    bodymaps {\n      id\n      label\n      details\n    }\n    user {\n      id\n      name\n      email\n    }\n  }\n}",
+      "tag": "gql",
+      "templateLiteralNodeStart": {
+        "line": 62,
+        "character": 14
+      },
+      "templateLiteralNodeEnd": {
+        "line": 81,
+        "character": 5
+      },
+      "documentStart": {
+        "line": 62,
+        "character": 15
+      },
+      "documentEnd": {
+        "line": 81,
+        "character": 4
+      }
+    },
+    {
+      "fileName": "/home/adenlall/code/nextjs/injury/pages.old/reports.tsx",
+      "type": "query",
+      "operationName": "FeedQuery",
+      "body": "query FeedQuery {\n  feed {\n    id\n    name\n    date\n    createdAt\n  }\n}",
+      "tag": "gql",
+      "templateLiteralNodeStart": {
+        "line": 261,
+        "character": 14
+      },
+      "templateLiteralNodeEnd": {
+        "line": 270,
+        "character": 5
+      },
+      "documentStart": {
+        "line": 261,
+        "character": 15
+      },
+      "documentEnd": {
+        "line": 270,
+        "character": 4
+      }
+    },
+    {
+      "fileName": "/home/adenlall/code/nextjs/injury/pages.old/edit/[id].tsx",
+      "type": "mutation",
+      "operationName": "EditReportMutation",
+      "body": "mutation EditReportMutation($id: ID!, $name: String!, $date: Date!) {\n  editReport(id: $id, name: $name, date: $date) {\n    id\n    name\n    date\n    bodymaps {\n      id\n      label\n      details\n    }\n    user {\n      id\n      name\n    }\n  }\n}",
+      "tag": "gql",
+      "templateLiteralNodeStart": {
+        "line": 21,
+        "character": 30
+      },
+      "templateLiteralNodeEnd": {
+        "line": 38,
+        "character": 1
+      },
+      "documentStart": {
+        "line": 21,
+        "character": 31
+      },
+      "documentEnd": {
+        "line": 38,
+        "character": 0
+      }
+    },
+    {
+      "fileName": "/home/adenlall/code/nextjs/injury/pages.old/edit/[id].tsx",
+      "type": "mutation",
+      "operationName": "CreateBodyMapMutation",
+      "body": "mutation CreateBodyMapMutation($reportId: ID!, $label: String!, $details: String!) {\n  createBodyMap(reportId: $reportId, label: $label, details: $details) {\n    id\n    label\n    details\n    report {\n      id\n      name\n    }\n  }\n}",
+      "tag": "gql",
+      "templateLiteralNodeStart": {
+        "line": 39,
+        "character": 33
+      },
+      "templateLiteralNodeEnd": {
+        "line": 55,
+        "character": 1
+      },
+      "documentStart": {
+        "line": 39,
+        "character": 34
+      },
+      "documentEnd": {
+        "line": 55,
+        "character": 0
+      }
+    },
+    {
+      "fileName": "/home/adenlall/code/nextjs/injury/pages.old/edit/[id].tsx",
+      "type": "mutation",
+      "operationName": "EditBodyMapMutation",
+      "body": "mutation EditBodyMapMutation($id: ID!, $label: String!, $details: String!) {\n  editBodyMap(id: $id, label: $label, details: $details) {\n    id\n    label\n    details\n  }\n}",
+      "tag": "gql",
+      "templateLiteralNodeStart": {
+        "line": 56,
+        "character": 31
+      },
+      "templateLiteralNodeEnd": {
+        "line": 64,
+        "character": 1
+      },
+      "documentStart": {
+        "line": 56,
+        "character": 32
+      },
+      "documentEnd": {
+        "line": 64,
+        "character": 0
+      }
+    },
+    {
+      "fileName": "/home/adenlall/code/nextjs/injury/pages.old/edit/[id].tsx",
+      "type": "mutation",
+      "operationName": "DeleteBodyMapMutation",
+      "body": "mutation DeleteBodyMapMutation($id: ID!) {\n  deleteBodyMap(id: $id) {\n    id\n    label\n    details\n  }\n}",
+      "tag": "gql",
+      "templateLiteralNodeStart": {
+        "line": 65,
+        "character": 33
+      },
+      "templateLiteralNodeEnd": {
+        "line": 73,
+        "character": 1
+      },
+      "documentStart": {
+        "line": 65,
+        "character": 34
+      },
+      "documentEnd": {
+        "line": 73,
+        "character": 0
+      }
+    },
+    {
+      "fileName": "/home/adenlall/code/nextjs/injury/pages.old/edit/[id].tsx",
+      "type": "query",
+      "operationName": "ReportQuery",
+      "body": "query ReportQuery($id: ID!) {\n  report(id: $id) {\n    id\n    name\n    date\n    bodymaps {\n      id\n      label\n      details\n    }\n    user {\n      id\n      name\n    }\n  }\n}",
+      "tag": "gql",
+      "templateLiteralNodeStart": {
+        "line": 202,
+        "character": 14
+      },
+      "templateLiteralNodeEnd": {
+        "line": 219,
+        "character": 5
+      },
+      "documentStart": {
+        "line": 202,
+        "character": 15
+      },
+      "documentEnd": {
+        "line": 219,
+        "character": 4
+      }
+    },
+    {
+      "fileName": "/home/adenlall/code/nextjs/injury/pages.old/p/[id].tsx",
+      "type": "mutation",
+      "operationName": "DeleteMutation",
+      "body": "mutation DeleteMutation($id: ID!) {\n  deleteReport(id: $id) {\n    id\n    name\n    date\n    user {\n      id\n      name\n    }\n  }\n}",
+      "tag": "gql",
+      "templateLiteralNodeStart": {
+        "line": 29,
+        "character": 26
+      },
+      "templateLiteralNodeEnd": {
+        "line": 41,
+        "character": 1
+      },
+      "documentStart": {
+        "line": 29,
+        "character": 27
+      },
+      "documentEnd": {
+        "line": 41,
+        "character": 0
+      }
+    },
+    {
+      "fileName": "/home/adenlall/code/nextjs/injury/pages.old/p/[id].tsx",
+      "type": "query",
+      "operationName": "ReportQuery",
+      "body": "query ReportQuery($id: ID!) {\n  report(id: $id) {\n    id\n    name\n    date\n    bodymaps {\n      id\n      label\n      details\n    }\n    user {\n      id\n      name\n    }\n  }\n}",
+      "tag": "gql",
+      "templateLiteralNodeStart": {
+        "line": 135,
+        "character": 14
+      },
+      "templateLiteralNodeEnd": {
+        "line": 152,
+        "character": 5
+      },
+      "documentStart": {
+        "line": 135,
+        "character": 15
+      },
+      "documentEnd": {
+        "line": 152,
+        "character": 4
+      }
+    }
+  ]
+}

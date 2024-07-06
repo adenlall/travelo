@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="976d5cee-b263-42a4-a488-f77a1e92156d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GRAPHQL_OPERATIONS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/auth/[...nextauth]/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/graphql/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Users.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql.config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/builder.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/context.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/fields/feed.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/queries/__generated__/hello-user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/queries/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/queries/user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/resolvers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/scalars.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/schema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/validators/links.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/BodyMap/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/BodyMap/mutations.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/Profile/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/Report/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/Report/mutations.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/User/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/User/mutations.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages.old/__generated__/create-report-mutation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages.old/__generated__/feed-query.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages.old/_app.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages.old/api/auth/[...nextauth].ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages.old/api/graphql.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages.old/create.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages.old/edit/[id].tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages.old/edit/__generated__/create-body-map-mutation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages.old/edit/__generated__/delete-body-map-mutation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages.old/edit/__generated__/edit-body-map-mutation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages.old/edit/__generated__/edit-report-mutation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages.old/edit/__generated__/report-query.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages.old/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages.old/p/[id].tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages.old/p/__generated__/delete-mutation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages.old/p/__generated__/report-query.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages.old/profile.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages.old/reports.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apollo-client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apollo-client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/auth/[...nextauth].ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/graphql.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/create.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/edit/[id].tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/p/[id].tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/profile.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/reports.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/migrations/20231019135508_/migration.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/migrations/migration_lock.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/seed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/seed.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;adenlall&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Aladdin4u/injury-tracking-system-nextJs.git&quot;,
+    &quot;accountId&quot;: &quot;5b4de318-8d23-4dd6-8ce0-5af260646328&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@apollo+client@3.8.6_graphql@16.8.1_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@apollo/client/react/hooks/useMutation.d.ts" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2iIMuM2Z0rLCfbifcLDvjcNGzJJ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "full.screen.before.presentation.mode": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/adenlall/code/material/next-material",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "/home/adenlall/flatpak-node",
+    "nodejs_package_manager_path": "/home/adenlall/flatpak-pnpm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/home/adenlall/code/nextjs/injury/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="/tmp/qodana_output/qodana.sarif.json" reportGuid="16417f95-abbd-4344-b804-81e146ec344a" reportId="injury/qodana/2024-06-23" />
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.18034.50" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="976d5cee-b263-42a4-a488-f77a1e92156d" name="Changes" comment="" />
+      <created>1719173865708</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1719173865708</updated>
+      <workItem from="1719173868466" duration="1440000" />
+      <workItem from="1719175328459" duration="3954000" />
+      <workItem from="1719182348548" duration="7176000" />
+      <workItem from="1719270958643" duration="3559000" />
+      <workItem from="1719274884516" duration="493000" />
+      <workItem from="1719275407409" duration="538000" />
+      <workItem from="1719275959263" duration="357000" />
+      <workItem from="1719276330583" duration="239000" />
+      <workItem from="1719303875711" duration="28000" />
+      <workItem from="1719453678121" duration="1456000" />
+      <workItem from="1719602384442" duration="34000" />
+      <workItem from="1719753581568" duration="68000" />
+      <workItem from="1719934065939" duration="32000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

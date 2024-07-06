@@ -8,7 +8,7 @@ export async function createContext() {
       // const { id, email } = session;
 
       return {
-        id:'id',
-        email:'xcom@proton.me'
+        id:"clyaadti70000dops2rsqwffp",
+        email:'alice@prisma.io'
       }
 }

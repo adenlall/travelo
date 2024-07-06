@@ -1,90 +1,51 @@
-import { builder } from "@/graphql/builder";
+import { builder } from "../../graphql/builder";
+import prisma from "../../lib/prisma";
+import './mutations'
 
-builder.prismaObject('User', {
-  fields: (t) => ({
-    id: t.exposeID('id'),
-    name: t.exposeString('name'),
-    username: t.exposeString('username'),
-    email: t.exposeString('email'),
-    trips: t.relation("trips", {
+builder.prismaObject("User", {
+  include: {
+    profile: true,
+    trips:true
+  },
+  fields: t => ({
+    id: t.exposeString("id"),
+    email: t.exposeString("email"),
+    name: t.exposeString("name", { nullable: true }),
+    tagline: t.exposeString("tagline", { nullable: true }),
+    description: t.string({
+      resolve: (user) => user?.profile?.description,
+      nullable: true,
+    }),
+
+    tripOnCity: t.string({
       args: {
-        oldestFirst: t.arg.boolean(),
+        city: t.arg({ type: 'String', required: true }),
       },
-      query: (args, context) => ({
-        orderBy: {
-          createdAt: args.oldestFirst ? 'asc' : 'desc',
-        },
+      select: (args) => ({
+        trips:{
+          where:{
+            trip:{
+              location:{
+                city: args.city
+              }
+            }
+          }
+        }
       }),
+      nullable:true,
+      resolve: (user) => user.trips[0]?.tripId,
     }),
-    tripsConnection: t.relatedConnection('trips', {
-      cursor: 'id',
-    }),
-    
-    profile: t.relation("profile"),
 
-    vues:t.exposeInt("vues"),
-    likes:t.exposeInt("likes"),
-
-    createdAt: t.expose("createdAt", {
-      type: "Date"
+    trips: t.relatedConnection('trips', {
+      cursor: 'userId_tripId',
     }),
-    updatedAt: t.expose("updatedAt", {
-      type: "Date"
-    })
+    profile: t.relation("profile", { nullable: true }),
   }),
 })
 
-
-builder.queryField('Auth', (t) =>
-  t.prismaField({
-    type: 'User',
-    resolve: async (query, _parent, _args, ctx) => {
-      if (!(await ctx).id) {
-        throw new Error("You have to be logged in to perform this action")
-      }
-      const user = await prisma.user.findFirst({
-        ...query,
-        where: {
-          email: (await ctx).email,
-        }
-      })
-
-      if (!user) {
-        throw Error('Your not Authorized');
-      }
-
-      return user
-    }
-  })
-)
-builder.queryField('User', (t) =>
+builder.queryField("Users", t =>
   t.prismaField({
     type: ["User"],
-    args: {
-      id: t.arg({
-        type: "String",
-      }),
-      name: t.arg({
-        type: "String",
-      }),
-    },
-    resolve: async (query, _parent, _args) => {
-      if (_args.id) {
-        const user = await prisma.user.findMany({
-          ...query,
-          where: {
-            id: _args.id
-          }
-        })
-        return user;
-      }
-      const users = await prisma.user.findMany({
-        ...query,
-        // where:{
-        //   // name:_args.name
-        // }
-      })
-      return users
-    }
-  })
+    resolve: async (_query: any, _parent: any, _args: any, _info: any) => prisma.user.findMany({}),
+  } as any)
 )
