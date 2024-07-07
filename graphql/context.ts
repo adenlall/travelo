@@ -1,14 +1,20 @@
-// import { useAuth } from "@/hooks/useAuth";
+import { auth } from "../lib/auth"
+import { log } from "../utils"
 
 export async function createContext() {
-      // const session = useAuth();
+    const session = await auth()
 
-      // if (!session || !session.id || typeof session === 'undefined') return {}
+    // if (!session || !session.id || typeof session === 'undefined') return {}
 
-      // const { id, email } = session;
+    log("session");
+    log(session)
+
+      const email = "alice@prisma.com"//session?.user?.email;
+      const name = "alice"//session?.user?.name;
 
       return {
         id:"clyaadti70000dops2rsqwffp",
-        email:'alice@prisma.io'
+        email:email,
+        name:name
       }
 }
