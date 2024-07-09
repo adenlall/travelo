@@ -4,6 +4,7 @@ import prisma from "../lib/prisma";
 import RelayPlugin from "@pothos/plugin-relay";
 import { createContext } from './context';
 import type PrismaTypes from "@pothos/plugin-prisma/generated";
+import ValidationPlugin from '@pothos/plugin-validation';
 
 export const builder = new SchemaBuilder<{
   PrismaTypes: PrismaTypes,
@@ -16,9 +17,9 @@ export const builder = new SchemaBuilder<{
       Input: any;
       Output: any;
     };
-    LinkType:{
-      Input:any,
-      Output:any;
+    LinkType: {
+      Input: any,
+      Output: any;
     };
     Links: {
       Input: any,
@@ -31,8 +32,13 @@ export const builder = new SchemaBuilder<{
   },
   Context: ReturnType<typeof createContext>,
 }>({
-  plugins: [PrismaPlugin, RelayPlugin],
+  plugins: [PrismaPlugin, RelayPlugin, ValidationPlugin],
   relayOptions: {},
+  validationOptions: {
+    validationError: (zodError, args, context, info) => {
+      return zodError;
+    }
+  },
   prisma: {
     client: prisma,
   }

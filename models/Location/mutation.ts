@@ -23,11 +23,31 @@ builder.mutationField("createLocation", t =>
     t.prismaField({
         type: "Location",
         args: {
-            country: t.arg.string({ required: true }),
-            state: t.arg.string({ required: true }),
-            city: t.arg.string({ required: true }),
-            tripId: t.arg.id({ required: false }),
-            profileId: t.arg.id({ required: false }),
+            country: t.arg.string({
+                required: true, validate: {
+                    minLength: 2
+                }
+            }),
+            state: t.arg.string({
+                required: true, validate: {
+                    minLength: 2
+                }
+            }),
+            city: t.arg.string({
+                required: true, validate: {
+                    minLength: 2
+                }
+            }),
+            tripId: t.arg.id({
+                required: false, validate: {
+                    uuid: true
+                }
+            }),
+            profileId: t.arg.id({
+                required: false, validate: {
+                    uuid: true
+                }
+            }),
         },
         resolve: async (query, _parent, args, ctx) =>
             prisma.location.create({
@@ -41,10 +61,26 @@ builder.mutationField("editLocation", t =>
     t.prismaField({
         type: "Location",
         args: {
-            id: t.arg.id({ required: true }),
-            country: t.arg.string({ required: false }),
-            state: t.arg.string({ required: false }),
-            city: t.arg.string({ required: false })
+            id: t.arg.id({
+                required: true, validate: {
+                    uuid: true
+                }
+            }),
+            country: t.arg.string({
+                required: false, validate: {
+                    minLength: 2
+                }
+            }),
+            state: t.arg.string({
+                required: false, validate: {
+                    minLength: 2
+                }
+            }),
+            city: t.arg.string({
+                required: false, validate: {
+                    minLength: 2
+                }
+            })
         },
         resolve: async (query, _parent, args, ctx) =>
             prisma.location.update({

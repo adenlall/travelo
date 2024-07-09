@@ -23,6 +23,9 @@ importers:
       '@pothos/plugin-relay':
         specifier: ^3.46.1
         version: 3.46.1(@pothos/core@3.38.0(graphql@16.8.1))(graphql@16.8.1)
+      '@pothos/plugin-validation':
+        specifier: ^3.10.2
+        version: 3.10.2(@pothos/core@3.38.0(graphql@16.8.1))(graphql@16.8.1)(zod@3.23.8)
       '@prisma/client':
         specifier: ^5.16.1
         version: 5.16.1(prisma@5.15.1)
@@ -77,6 +80,9 @@ importers:
       styled-components:
         specifier: ^6.1.0
         version: 6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       '@graphql-codegen/cli':
         specifier: ^5.0.2
@@ -1002,6 +1008,13 @@ packages:
     peerDependencies:
       '@pothos/core': '*'
       graphql: '>=15.1.0'
+
+  '@pothos/plugin-validation@3.10.2':
+    resolution: {integrity: sha512-oA1z2NXYNozol47+opKiNzKc7+lfMKQeyu2oQd8ijQyRv+cMLpwx1kkd/E8gkt63XUpBWPmE7IZDJ6/Xyrfs3g==}
+    peerDependencies:
+      '@pothos/core': '*'
+      graphql: ^16.8.1
+      zod: '*'
 
   '@prisma/client@5.16.1':
     resolution: {integrity: sha512-wM9SKQjF0qLxdnOZIVAIMKiz6Hu7vDt4FFAih85K1dk/Rr2mdahy6d3QP41K62N9O0DJJA//gUDA3Mp49xsKIg==}
@@ -3543,6 +3556,9 @@ packages:
   zen-observable@0.8.15:
     resolution: {integrity: sha512-PQ2PC7R9rslx84ndNBZB/Dkv8V8fZEpk83RLgXtYd0fwUgEjseMn1Dgajh2x6S8QbZAFa9p2qVCEuYZNgve0dQ==}
 
+  zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+
 snapshots:
 
   '@ampproject/remapping@2.3.0':
@@ -4762,6 +4778,12 @@ snapshots:
     dependencies:
       '@pothos/core': 3.38.0(graphql@16.8.1)
       graphql: 16.8.1
+
+  '@pothos/plugin-validation@3.10.2(@pothos/core@3.38.0(graphql@16.8.1))(graphql@16.8.1)(zod@3.23.8)':
+    dependencies:
+      '@pothos/core': 3.38.0(graphql@16.8.1)
+      graphql: 16.8.1
+      zod: 3.23.8
 
   '@prisma/client@5.16.1(prisma@5.15.1)':
     optionalDependencies:
@@ -7714,3 +7736,5 @@ snapshots:
       zen-observable: 0.8.15
 
   zen-observable@0.8.15: {}
+
+  zod@3.23.8: {}

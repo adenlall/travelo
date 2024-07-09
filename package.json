@@ -23,6 +23,7 @@
     "@pothos/core": "3.38.0",
     "@pothos/plugin-prisma": "3.61.0",
     "@pothos/plugin-relay": "^3.46.1",
+    "@pothos/plugin-validation": "^3.10.2",
     "@prisma/client": "^5.16.1",
     "@prisma/extension-accelerate": "^1.1.0",
     "antd": "^5.10.2",
@@ -40,7 +41,8 @@
     "react-markdown": "8.0.7",
     "react-relay": "^17.0.0",
     "relay-runtime": "^17.0.0",
-    "styled-components": "^6.1.0"
+    "styled-components": "^6.1.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.2",

@@ -1,20 +1,19 @@
 import { builder } from "../../graphql/builder"
 import prisma from "../../lib/prisma"
 import "./mutations"
-import { User } from "../../types/graphql"
+import { User as GqlUser } from "../../types/graphql"
+import { PrismaFieldResolver } from "@pothos/plugin-prisma"
+import { MaybePromise } from "@pothos/core"
+import { User } from "@prisma/client"
 
 builder.prismaObject("User", {
   include: {
     profile: true,
     trips: true
   },
-  select: {
-    id: true
-  },
-  findUnique: (user: User) => ({ id: user.id }),
   fields: t => ({
     id: t.exposeString("id"),
-    email: t.exposeString("email"),
+    email: t.exposeString("email", {nullable:false}),
     name: t.exposeString("name", { nullable: true }),
     tagline: t.exposeString("tagline", { nullable: true }),
     description: t.string({
@@ -51,18 +50,20 @@ builder.prismaObject("User", {
 builder.queryField("users", t =>
   t.prismaField({
     type: ["User"],
-    resolve: async (_query: any, _parent: any, _args: any, _info: any) => prisma.user.findMany({})
-  } as any)
+    resolve: async (query, root, args, ctx, info) => prisma.user.findMany({})
+  })
 )
 
 builder.queryField("user", t =>
   t.prismaField({
     type: "User",
-    resolve: async (query, root, args, ctx, info) =>
-      prisma.user.findUnique({
+    args: {
+      id: t.arg.string({ required: true })
+    },
+    resolve: async (query, root, args) =>
+      prisma.user.findUniqueOrThrow({
         ...query,
-        rejectOnNotFound: true,
-        where: { email: args.email }
+        where: { id: String(args.id) }
       })
   })
 )
@@ -70,11 +71,19 @@ builder.queryField("user", t =>
 builder.queryField("me", t =>
   t.prismaField({
     type: "User",
-    resolve: async (query, root, args, ctx, info) =>
-      prisma.user.findUnique({
+    resolve: async (query, root, args, ctx) =>{
+      
+      if (!(await ctx).email) {
+        throw new Error("You have to be logged in to perform this action")
+      }
+      const me = prisma.user.findUniqueOrThrow({
         ...query,
-        rejectOnNotFound: true,
-        where: { email: (await ctx).email }
+        where: { email: (await ctx).email??"" }
       })
+
+      if (!me) throw Error('User does not exist');
+
+      return me
+    }
   })
 )

@@ -1,5 +1,7 @@
+import user from "graphql/queries/user";
 import { builder } from "../../graphql/builder";
 import prisma from "../../lib/prisma";
+import zod from "zod";
 
 
 builder.mutationField("deleteTrip", t =>
@@ -20,40 +22,74 @@ builder.mutationField("deleteTrip", t =>
 
 const LocationInput = builder.inputType('LocationInput', {
     fields: (t) => ({
-      city: t.string({ required: true }),
-      country: t.string({ required: true }),
-      state: t.string({ required: true }),
+        city: t.string({
+            required: true,
+            validate: {
+                minLength: 2
+            }
+        }),
+        country: t.string({
+            required: true,
+            validate: {
+                minLength: 2
+            }
+        }),
+        state: t.string({
+            required: true,
+            validate: {
+                minLength: 2
+            }
+        }),
     }),
-  });
+});
 
 builder.mutationField("createTrip", t =>
+    // TODO: edge case where user give location obj but the uniqueness faleid
     t.prismaField({
         type: "Trip",
         args: {
-            title: t.arg.string({ required: true }),
-            description: t.arg({ type: "String" }),
-            locationId: t.arg.string(),
+            title: t.arg.string({
+                required: true, validate: {
+                    minLength: 10,
+                    maxLength: 150
+                }
+            }),
+            description: t.arg({
+                type: "String", validate: {
+                    maxLength: 200
+                }
+            }),
+            locationId: t.arg.string({
+                validate: {
+                    uuid: true
+                }
+            }),
             location: t.arg({
                 type: LocationInput,
-                required:false
+                required: false
             }),
         },
-        resolve: async (query, _parent, args, ctx) =>
-            prisma.trip.create({
+        validate: [
+            (args) => {
+                if (!args.locationId && !args.location) {
+                    return false;
+                }
+                return true;
+            },
+            { message: "You must specify a locationId or location object for this trip" }
+        ],
+        resolve: async (query, _parent, args, ctx) => {
+            return prisma.trip.create({
                 ...query,
                 data: {
                     title: args.title,
                     description: args.description,
                     location: {
                         connectOrCreate: {
-                            where:{
-                                id:args.locationId??""
+                            where: {
+                                id: args.locationId ?? ""
                             },
-                            create:args.location??{
-                                city:"dqw",
-                                country:"dqw",
-                                state:"dww"
-                            }
+                            create: args.location as any
                         }
                     },
                     users: {
@@ -64,13 +100,14 @@ builder.mutationField("createTrip", t =>
                                         id: (await ctx).id
                                     }
                                 },
-                                assignedBy: "API",
+                                assignedBy: (await ctx).email ?? "API",
                                 assignedAt: new Date(),
                             }
                         ]
                     }
                 },
-            }),
+            });
+        }
     })
 )
 
@@ -78,9 +115,23 @@ builder.mutationField("editTrip", t =>
     t.prismaField({
         type: "Trip",
         args: {
-            id: t.arg.id({ required: true }),
-            title: t.arg.string({ required: true }),
-            description: t.arg.string()
+            id: t.arg.id({
+                required: true,
+                validate: {
+                    uuid: true
+                }
+            }),
+            title: t.arg.string({
+                required: true,
+                validate: {
+                    schema: zod.string().max(150).min(50)
+                }
+            }),
+            description: t.arg.string({
+                validate: {
+                    schema: zod.string().max(200)
+                }
+            })
         },
         resolve: async (query, _parent, args, ctx) =>
             prisma.trip.update({

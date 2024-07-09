@@ -5,9 +5,19 @@ builder.mutationField("createUser", t =>
   t.prismaField({
     type: "User",
     args: {
-      name: t.arg.string({ required: true }),
-      tagline: t.arg.string(),
-      email: t.arg.string({ required: true }),
+      name: t.arg.string({ required: true, validate:{
+        minLength:5,
+        maxLength:50
+      } }),
+      tagline: t.arg.string({
+        validate:{
+          maxLength:50,
+          minLength:5
+        }
+      }),
+      email: t.arg.string({ required: true, validate:{
+        email:true
+      } }),
     },
     resolve: async (query, _parent, args, _info) =>
       prisma.user.create({
@@ -25,16 +35,18 @@ builder.mutationField("deleteUser", t =>
   t.prismaField({
     type: "User",
     args: {
-      name: t.arg.string({ required: true }),
-      email: t.arg.string({ required: true }),
+      id: t.arg.id({
+        required: true, validate: {
+          uuid: true
+        }
+      }),
     },
     resolve: async (query, _parent, args, _info) =>
-      prisma.user.create({
+      prisma.user.delete({
         ...query,
-        data: {
-          email: args.email,
-          name: args.name,
-        },
+        where:{
+          id: String(args.id)
+        }
       }),
   })
 )

@@ -1,13 +1,12 @@
 import { builder } from "../../graphql/builder";
 import prisma from "../../lib/prisma";
 import "./mutation";
-import { Address } from "../../types/graphql"
 
 builder.prismaNode("Address", {
     select: {
         id: true,
     },
-    findUnique: (address : Address) => ({ id: address.id }),
+    findUnique: (address : any) => ({ id: address.id }),
     id: { resolve: (location) => String(location.id) },
     nullable: true,
     fields: t => ({

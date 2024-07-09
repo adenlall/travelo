@@ -6,7 +6,7 @@ builder.prismaObject("Profile", {
   select: {
     id: true,
   },
-  findUnique: (profile : Profile) => ({ id: profile.id }),
+  findUnique: (profile : any) => ({ id: profile.id }),
   fields: t => ({
     id: t.exposeString("id"),
     description: t.exposeString("description", { nullable: true }),
@@ -17,9 +17,23 @@ builder.prismaObject("Profile", {
 })
 
 
-builder.queryField("Profile", t =>
+builder.queryField("profiles", t =>
     t.prismaField({
         type: ["Profile"],
         resolve: async (_query: any, _parent: any, _args: any, _info: any) => prisma.profile.findMany({}),
     } as any)
+)
+
+builder.queryField("profile", t =>
+  t.prismaField({
+    type: "Profile",
+    args: {
+      id: t.arg.string({ required: true })
+    },
+    resolve: async (query, root, args) =>
+      prisma.profile.findUniqueOrThrow({
+        ...query,
+        where: { id: String(args.id) }
+      })
+  })
 )

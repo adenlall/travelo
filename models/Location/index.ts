@@ -1,14 +1,13 @@
 import { builder } from "../../graphql/builder";
 import prisma from "../../lib/prisma";
 import "./mutation";
-import { Location } from "../../types/graphql"
 
 builder.prismaNode("Location", {
     select: {
         id: true,
     },
-    findUnique: (location : Location) => ({ id: location.id }),
-    id: { resolve: (location : Location) => String(location.id) },
+    findUnique: (location:any) => ({ id: location.id }),
+    id: { resolve: (location) => String(location.id) },
     nullable: true,
     fields: t => ({
         state: t.exposeString("state", { nullable: true }),
@@ -42,9 +41,24 @@ builder.prismaNode("Location", {
     }),
 })
 
-builder.queryField("Location", t =>
+builder.queryField("locations", t =>
     t.prismaField({
         type: ["Location"],
         resolve: async (_query: any, _parent: any, _args: any, _info: any) => prisma.location.findMany({}),
     } as any)
+)
+
+
+builder.queryField("location", t =>
+  t.prismaField({
+    type: "Location",
+    args: {
+      id: t.arg.string({ required: true })
+    },
+    resolve: async (query, root, args) =>
+      prisma.location.findUniqueOrThrow({
+        ...query,
+        where: { id: String(args.id) }
+      })
+  })
 )
