@@ -1,13 +1,14 @@
 import { builder } from "../../graphql/builder";
 import prisma from "../../lib/prisma";
 import "./mutation";
+import { Location } from "../../types/graphql"
 
 builder.prismaNode("Location", {
     select: {
         id: true,
     },
-    id: { resolve: (location) => String(location.id) },
-    findUnique: (id) => ({ id: id }),
+    findUnique: (location : Location) => ({ id: location.id }),
+    id: { resolve: (location : Location) => String(location.id) },
     nullable: true,
     fields: t => ({
         state: t.exposeString("state", { nullable: true }),

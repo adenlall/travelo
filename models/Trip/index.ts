@@ -1,11 +1,13 @@
 import { builder } from "../../graphql/builder";
 import prisma from "../../lib/prisma";
 import './mutation';
+import { Trip, User } from "../../types/graphql"
 
 builder.prismaObject("Trip", {
     select: {
         id: true,
     },
+    findUnique: (trip : Trip) => ({ id: trip.id }),
     fields: t => ({
         id: t.exposeString("id"),
         title: t.exposeString("title"),
@@ -19,7 +21,7 @@ builder.prismaObject("Trip", {
                     },
                 },
             }),
-            type: ["User"] as any,
+            type: ["User"] as User[],
             resolve: (trip) => trip.users.map(({ user }) => user),
             nullable: true,
         })

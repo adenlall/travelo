@@ -1,17 +1,26 @@
-import { Metadata } from 'next'
+"use client";
 
-export default function RootLayout({ children, }: {
-    children: React.ReactNode
+import { RelayEnvironmentProvider } from "react-relay";
+import "../styles/globals.css";
+
+import styles from "../styles/layout.module.css";
+import { getCurrentEnvironment } from "../relay/environment"
+
+export default function RootLayout({
+                                       children,
+                                   }: {
+    children: React.ReactNode;
 }) {
+    const environment = getCurrentEnvironment();
+
     return (
-        <html lang="en">
-            <body>{children}</body>
-        </html>
-    )
-}
-
-
-export const metadata: Metadata = {
-    title: 'Home',
-    description: 'Welcome to Next.js',
+      <html>
+      <head>
+          <title>Github Issues: Relay</title>
+      </head>
+      <RelayEnvironmentProvider environment={environment}>
+          <body className={styles.layout}>{children}</body>
+      </RelayEnvironmentProvider>
+      </html>
+    );
 }

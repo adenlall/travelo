@@ -1,20 +1,13 @@
 import { auth } from "../lib/auth"
 import { log } from "../utils"
+import { Session } from "next-auth"
 
 export async function createContext() {
-    const session = await auth()
-
-    // if (!session || !session.id || typeof session === 'undefined') return {}
-
-    log("session");
-    log(session)
-
-      const email = "alice@prisma.com"//session?.user?.email;
-      const name = "alice"//session?.user?.name;
+    const session : Session | null = await auth()
 
       return {
-        id:"clyaadti70000dops2rsqwffp",
-        email:email,
-        name:name
+        id:session?.user.id,
+        email:session?.user.email,
+        name:session?.user.name
       }
 }

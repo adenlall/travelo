@@ -1,10 +1,12 @@
 import { builder } from "../../graphql/builder";
 import prisma from "../../lib/prisma";
+import { Profile } from "../../types/graphql"
 
 builder.prismaObject("Profile", {
   select: {
     id: true,
   },
+  findUnique: (profile : Profile) => ({ id: profile.id }),
   fields: t => ({
     id: t.exposeString("id"),
     description: t.exposeString("description", { nullable: true }),

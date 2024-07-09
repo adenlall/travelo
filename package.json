@@ -6,9 +6,16 @@
   "license": "MIT",
   "author": "",
   "scripts": {
-    "dev": "next",
-    "build": "npx prisma generate --no-engine && prisma db push && next build",
-    "start": "next start"
+    "dev": "next dev",
+    "build": "relay-compiler --validate && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "generate": "graphql-codegen",
+    "relay": "relay-compiler",
+    "codegen": "gql-gen --config codegen.ts"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   },
   "dependencies": {
     "@apollo/client": "3.8.6",
@@ -21,7 +28,6 @@
     "antd": "^5.10.2",
     "chart.js": "^4.4.0",
     "eslint-plugin-graphql": "^4.0.0",
-    "graphql": "16.8.1",
     "graphql-scalars": "1.22.4",
     "graphql-tag": "^2.12.6",
     "graphql-yoga": "4.0.5",
@@ -32,19 +38,33 @@
     "react-dom": "18.3.1",
     "react-highlight-words": "^0.20.0",
     "react-markdown": "8.0.7",
+    "react-relay": "^17.0.0",
+    "relay-runtime": "^17.0.0",
     "styled-components": "^6.1.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/client-preset": "^4.3.2",
+    "@graphql-codegen/introspection": "^4.0.3",
+    "@graphql-codegen/schema-ast": "^4.1.0",
     "@types/graphql": "14.5.0",
     "@types/node": "18.18.5",
     "@types/react": "18.2.28",
     "@types/react-highlight-words": "^0.16.6",
+    "@types/react-relay": "^16.0.6",
+    "@types/relay-runtime": "^17.0.1",
+    "concurrently": "^8.2.2",
+    "graphql": "16.8.1",
+    "graphql-codegen-fragment-matcher": "0.18.2",
+    "graphql-codegen-typescript-client": "0.18.2",
+    "graphql-codegen-typescript-common": "0.18.2",
+    "graphql-codegen-typescript-graphql-files-modules": "0.18.2",
+    "graphql-codegen-typescript-react-apollo": "0.18.2",
+    "graphql-codegen-typescript-server": "0.18.2",
     "prisma": "^5.4.2",
+    "relay-compiler": "^17.0.0",
     "ts-graphql-plugin": "^4.0.2",
     "ts-node": "10.9.1",
     "typescript": "5.2.2"
-  },
-  "prisma": {
-    "seed": "ts-node prisma/seed.ts"
   }
 }
