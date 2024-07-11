@@ -6,7 +6,6 @@ builder.prismaObject("TripsOnUsers", {
   },
   fields: t => ({
     id: t.exposeID("id"),
-    assignedBy: t.exposeString("assignedBy"),
     assignedAt: t.expose("assignedAt", {
       type: "Date"
     }),

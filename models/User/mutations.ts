@@ -1,3 +1,4 @@
+import zod from "zod";
 import { builder } from "../../graphql/builder";
 import prisma from "../../lib/prisma";
 
@@ -17,7 +18,7 @@ builder.mutationField("createUser", t =>
       }),
       email: t.arg.string({ required: true, validate:{
         email:true
-      } }),
+      }}),
     },
     resolve: async (query, _parent, args, _info) =>
       prisma.user.create({
@@ -37,7 +38,7 @@ builder.mutationField("deleteUser", t =>
     args: {
       id: t.arg.id({
         required: true, validate: {
-          uuid: true
+          schema: zod.string().uuid()
         }
       }),
     },

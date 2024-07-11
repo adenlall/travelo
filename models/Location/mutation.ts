@@ -2,6 +2,7 @@ import { InputFieldRef, InputShapeFromFields } from "@pothos/core"
 import { builder } from "../../graphql/builder"
 import prisma from "../../lib/prisma"
 import { Create } from "./prisma"
+import zod from "zod"
 
 builder.mutationField("deleteLocation", t =>
     t.prismaField({
@@ -40,12 +41,12 @@ builder.mutationField("createLocation", t =>
             }),
             tripId: t.arg.id({
                 required: false, validate: {
-                    uuid: true
+                    schema: zod.string().uuid()
                 }
             }),
             profileId: t.arg.id({
                 required: false, validate: {
-                    uuid: true
+                    schema: zod.string().uuid()
                 }
             }),
         },
@@ -63,7 +64,7 @@ builder.mutationField("editLocation", t =>
         args: {
             id: t.arg.id({
                 required: true, validate: {
-                    uuid: true
+                    schema: zod.string().uuid()
                 }
             }),
             country: t.arg.string({

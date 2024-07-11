@@ -17,7 +17,6 @@ const userData: Prisma.UserCreateInput[] = [
     trips: {
       create: [
         {
-          assignedBy: "Alice",
           assignedAt: new Date(),
           trip: {
             create: {
@@ -33,7 +32,6 @@ const userData: Prisma.UserCreateInput[] = [
           }
         },
         {
-          assignedBy: "Alice",
           assignedAt: new Date(),
           trip: {
             create: {
@@ -49,7 +47,6 @@ const userData: Prisma.UserCreateInput[] = [
           }
         },
         {
-          assignedBy: "Alice",
           assignedAt: new Date(),
           trip: {
             create: {

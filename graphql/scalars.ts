@@ -2,19 +2,18 @@ import { DateResolver, JSONObjectResolver } from "graphql-scalars";
 import { builder } from "./builder";
 import { linksValidator } from "./validators/links";
 
-
 builder.scalarType("DurationType", {
-    serialize: (n) => n,
-    parseValue: (value: any) => {
-      return value;
-    }
-  });
+  serialize: (n) => n,
+  parseValue: (value: any) => {
+    return value;
+  }
+});
 
 builder.addScalarType('Date', DateResolver, {});
 builder.addScalarType('JSONObject', JSONObjectResolver, {});
 
 builder.scalarType('Links', {
-  description:'Links contains Website URL, Twitter Username and list of Links',
+  description: 'Links contains Website URL, Twitter Username and list of Links',
   serialize: (ls) => {
     if (linksValidator(ls)) {
       return ls;

@@ -4,7 +4,7 @@ import { schema } from './graphql/schema';
 
 const config: CodegenConfig = {
   schema: printSchema(schema),
-  documents: ['./**/*.tsx','./**/*.ts'],
+  documents: ['./**/*.tsx', './**/*.ts'],
   generates: {
     './types/': {
       preset: 'client',
@@ -13,7 +13,7 @@ const config: CodegenConfig = {
     'schema.graphql': {
       plugins: ['schema-ast'],
     }
-  },
-};
+  }
+}
 
 export default config;

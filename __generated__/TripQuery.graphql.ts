@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<d602eca6ae9f4aea7a2ba3a28cfdd7d4>>
+ * @generated SignedSource<<931fd39d31296fac22e5abb9ed55f684>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,7 +11,7 @@
 import { ConcreteRequest, Query } from 'relay-runtime';
 export type TripQuery$variables = Record<PropertyKey, never>;
 export type TripQuery$data = {
-  readonly Trip: ReadonlyArray<{
+  readonly trips: ReadonlyArray<{
     readonly description: string | null | undefined;
     readonly id: string;
     readonly location: {
@@ -82,7 +82,7 @@ return {
         "args": null,
         "concreteType": "Trip",
         "kind": "LinkedField",
-        "name": "Trip",
+        "name": "trips",
         "plural": true,
         "selections": [
           (v0/*: any*/),
@@ -120,7 +120,7 @@ return {
         "args": null,
         "concreteType": "Trip",
         "kind": "LinkedField",
-        "name": "Trip",
+        "name": "trips",
         "plural": true,
         "selections": [
           (v0/*: any*/),
@@ -147,16 +147,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "0b38113211bc580435d0d419c63693e6",
+    "cacheID": "4e544f776f819dc9c64954b002ca30ef",
     "id": null,
     "metadata": {},
     "name": "TripQuery",
     "operationKind": "query",
-    "text": "query TripQuery {\n  Trip {\n    id\n    title\n    description\n    location {\n      city\n      state\n      country\n      id\n    }\n  }\n}\n"
+    "text": "query TripQuery {\n  trips {\n    id\n    title\n    description\n    location {\n      city\n      state\n      country\n      id\n    }\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "2f639a65fddaec7360148557218fac82";
+(node as any).hash = "0ca0ec28f047f7a6bc52944642b7e1f7";
 
 export default node;

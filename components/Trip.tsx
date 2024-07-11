@@ -6,7 +6,7 @@ export default function Trip(props: { queryRef: PreloadedQuery<TripQuery> }) {
   const data = usePreloadedQuery(
     graphql`
         query TripQuery {
-            Trip {
+            trips {
                 id
                 title
                 description
@@ -23,14 +23,14 @@ export default function Trip(props: { queryRef: PreloadedQuery<TripQuery> }) {
 
   return (
     <Suspense fallback="Loading (client side)...">
-      <h1>{data.Trip[0].title}</h1>
-      <p>{data.Trip[0].description}</p>
+      <h1>{data.trips[0].title}</h1>
+      <p>{data.trips[0].description}</p>
       <h2>Location :</h2>
       <p>
         <ul>
-          <li>{data.Trip[0].location.city}</li>
-          <li>{data.Trip[0].location.state}</li>
-          <li>{data.Trip[0].location.country}</li>
+          <li>{data.trips[0].location.city}</li>
+          <li>{data.trips[0].location.state}</li>
+          <li>{data.trips[0].location.country}</li>
         </ul>
       </p>
     </Suspense>

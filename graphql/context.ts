@@ -1,6 +1,5 @@
 import { auth } from "../lib/auth"
-import { log } from "../utils"
-import { Session } from "next-auth"
+import type { Session } from "next-auth"
 
 export async function createContext() {
     const session : Session | null = await auth()

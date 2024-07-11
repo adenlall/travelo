@@ -1,10 +1,12 @@
 import SchemaBuilder, { FieldRef } from "@pothos/core";
-import PrismaPlugin from '@pothos/plugin-prisma';
 import prisma from "../lib/prisma";
-import RelayPlugin from "@pothos/plugin-relay";
+
 import { createContext } from './context';
+
 import type PrismaTypes from "@pothos/plugin-prisma/generated";
+import PrismaPlugin from '@pothos/plugin-prisma';
 import ValidationPlugin from '@pothos/plugin-validation';
+import RelayPlugin from "@pothos/plugin-relay";
 
 export const builder = new SchemaBuilder<{
   PrismaTypes: PrismaTypes,

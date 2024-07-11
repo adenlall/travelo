@@ -77,7 +77,7 @@ type Mutation {
   deleteAddress(id: ID!): Address!
   deleteLocation(id: ID!): Location!
   deleteTrip(id: ID!): Trip!
-  deleteUser(email: String!, name: String!): User!
+  deleteUser(id: ID!): User!
   editAddress(address: String, id: ID!, lat: Float, long: Float, name: String!, postalCode: String): Address!
   editLocation(city: String, country: String, id: ID!, state: String): Location!
   editTrip(description: String, id: ID!, title: String!): Trip!
@@ -104,12 +104,17 @@ type Profile {
 
 type Query {
   Address: [Address!]!
-  Location: [Location!]!
-  Profile: [Profile!]!
-  Trip: [Trip!]!
-  Users: [User!]!
+  location(id: String!): Location!
+  locations: [Location!]!
+  me: User!
   node(id: ID!): Node
   nodes(ids: [ID!]!): [Node]!
+  profile(id: String!): Profile!
+  profiles: [Profile!]!
+  trip(id: String!): Trip!
+  trips(me: Boolean): [Trip!]!
+  user(id: String!): User!
+  users: [User!]!
 }
 
 type Trip {
@@ -117,12 +122,21 @@ type Trip {
   id: String!
   location: Location!
   title: String!
-  users: [User!]
+  users(after: ID, before: ID, first: Int, last: Int): TripUsersConnection!
+}
+
+type TripUsersConnection {
+  edges: [TripUsersConnectionEdge]!
+  pageInfo: PageInfo!
+}
+
+type TripUsersConnectionEdge {
+  cursor: String!
+  node: TripsOnUsers!
 }
 
 type TripsOnUsers {
   assignedAt: Date!
-  assignedBy: String!
   id: ID!
   trip: Trip!
   user: User!

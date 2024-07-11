@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<d23dd84842402875df3a43014f74bef3>>
+ * @generated SignedSource<<8a4f033c81269540028a96ab11e334e2>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,7 +11,7 @@
 import { ConcreteRequest, Query } from 'relay-runtime';
 export type MainViewQuery$variables = Record<PropertyKey, never>;
 export type MainViewQuery$data = {
-  readonly Users: ReadonlyArray<{
+  readonly users: ReadonlyArray<{
     readonly name: string | null | undefined;
   }>;
 };
@@ -27,7 +27,7 @@ var v0 = [
     "args": null,
     "concreteType": "User",
     "kind": "LinkedField",
-    "name": "Users",
+    "name": "users",
     "plural": true,
     "selections": [
       {
@@ -59,16 +59,16 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "c67755136350c6d43dcfe805205a2655",
+    "cacheID": "d9aaaa987d022bc3fe964b59a2515d52",
     "id": null,
     "metadata": {},
     "name": "MainViewQuery",
     "operationKind": "query",
-    "text": "query MainViewQuery {\n  Users {\n    name\n  }\n}\n"
+    "text": "query MainViewQuery {\n  users {\n    name\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "268887b287a132473e3b9dfb240b6011";
+(node as any).hash = "8d6e4676dbbefa2fe776fd0bfc60ca64";
 
 export default node;

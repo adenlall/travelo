@@ -2,6 +2,7 @@ import user from "graphql/queries/user";
 import { builder } from "../../graphql/builder";
 import prisma from "../../lib/prisma";
 import zod from "zod";
+import { Prisma } from "@prisma/client";
 
 
 builder.mutationField("deleteTrip", t =>
@@ -61,7 +62,7 @@ builder.mutationField("createTrip", t =>
             }),
             locationId: t.arg.string({
                 validate: {
-                    uuid: true
+                    schema: zod.string().uuid()
                 }
             }),
             location: t.arg({
@@ -79,6 +80,18 @@ builder.mutationField("createTrip", t =>
             { message: "You must specify a locationId or location object for this trip" }
         ],
         resolve: async (query, _parent, args, ctx) => {
+            let where:Prisma.LocationWhereUniqueInput = {
+                id: args.locationId??""
+            };
+            if(args.location){
+                where = {
+                    identifier:{
+                        city: args.location.city,
+                        country: args.location.country,
+                        state: args.location.state
+                    }
+                }
+            }
             return prisma.trip.create({
                 ...query,
                 data: {
@@ -86,9 +99,7 @@ builder.mutationField("createTrip", t =>
                     description: args.description,
                     location: {
                         connectOrCreate: {
-                            where: {
-                                id: args.locationId ?? ""
-                            },
+                            where: where,
                             create: args.location as any
                         }
                     },
@@ -100,7 +111,6 @@ builder.mutationField("createTrip", t =>
                                         id: (await ctx).id
                                     }
                                 },
-                                assignedBy: (await ctx).email ?? "API",
                                 assignedAt: new Date(),
                             }
                         ]
@@ -118,7 +128,7 @@ builder.mutationField("editTrip", t =>
             id: t.arg.id({
                 required: true,
                 validate: {
-                    uuid: true
+                    schema: zod.string().uuid()
                 }
             }),
             title: t.arg.string({

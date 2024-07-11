@@ -52,7 +52,7 @@ builder.mutationField("createAddress", t =>
             locationId: t.arg.id({
                 required: true,
                 validate: {
-                    uuid: true
+                    schema: zod.string().uuid()
                 }
             })
         },
