@@ -15,7 +15,7 @@
     "codegen": "gql-gen --config codegen.ts"
   },
   "prisma": {
-    "seed": "ts-node prisma/seed.ts"
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
     "@apollo/client": "3.8.6",

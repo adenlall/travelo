@@ -1,5 +1,5 @@
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import { Role as UserRole } from "@prisma/client";
+import { Role as UserRole } from "@prisma/client/edge";
 import NextAuth, { type DefaultSession } from "next-auth";
 import prisma from "./prisma";
 
@@ -25,7 +25,7 @@ export const conf = {
       token: any,
       session: any
     }) {
-      log(token, session);
+      log({token:token, session:session});
       if (session.user) {
         if (token.sub) {
           session.user.id = token.sub;
@@ -47,16 +47,18 @@ export const conf = {
     },
 
     async jwt({ token }: any) {
-      log(token);
       if (!token.sub) return token;
       const dbUser = await prisma.user.findUnique({
         where: {
           id: token.sub
         }
       });
+
+      log("Checking dbUser ...");
+
       if (!dbUser) return token;
       
-      log(dbUser);
+      log("dbUser", dbUser, token);
 
       token.name = dbUser.name;
       token.email = dbUser.email;

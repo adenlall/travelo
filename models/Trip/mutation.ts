@@ -2,7 +2,7 @@ import user from "graphql/queries/user";
 import { builder } from "../../graphql/builder";
 import prisma from "../../lib/prisma";
 import zod from "zod";
-import { Prisma } from "@prisma/client";
+import { Prisma } from "@prisma/client/edge";
 
 
 builder.mutationField("deleteTrip", t =>

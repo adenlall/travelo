@@ -28,9 +28,9 @@ type Location implements Node {
   city: String!
   country: String!
   id: ID!
-  profiles(after: ID, before: ID, first: Int, last: Int, oldestFirst: Boolean): LocationProfilesConnection!
+  profiles(after: ID, before: ID, first: Int, last: Int): LocationProfilesConnection!
   state: String
-  trips(after: ID, before: ID, first: Int, last: Int, oldestFirst: Boolean): LocationTripsConnection!
+  trips(after: ID, before: ID, first: Int, last: Int): LocationTripsConnection!
 }
 
 type LocationAddressesConnection {

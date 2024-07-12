@@ -15,6 +15,13 @@ builder.prismaObject("Trip", {
     users: t.relatedConnection("users", {
       cursor: "userId_tripId"
     }),
+
+    createdAt: t.expose("createdAt", {
+      type: "Date"
+    }),
+    updatedAt: t.expose("updatedAt", {
+      type: "Date"
+    })
   })
 })
 
@@ -27,13 +34,14 @@ builder.queryField("trips", t =>
     resolve: async (query, parent, args, ctx) => {
 
       if (!args.me) {
-        return prisma.trip.findMany({});
+        return prisma.trip.findMany({...query});
       }
 
       if (!(await ctx).email) {
         throw new Error("You have to be logged in to perform this action")
       }
       return prisma.trip.findMany({
+        ...query,
         include: {
           users: {
             include: {

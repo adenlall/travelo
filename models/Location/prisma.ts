@@ -1,5 +1,5 @@
 import { InputFieldRef, InputShapeFromFields } from "@pothos/core";
-import { Prisma } from "@prisma/client";
+import { Prisma } from "@prisma/client/edge";
 
 export const Create = (args: InputShapeFromFields<{
     country: InputFieldRef<string, "Arg">;

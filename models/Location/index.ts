@@ -6,7 +6,7 @@ builder.prismaNode("Location", {
     select: {
         id: true,
     },
-    findUnique: (location:any) => ({ id: location.id }),
+    findUnique: (location: any) => ({ id: location.id }),
     id: { resolve: (location) => String(location.id) },
     nullable: true,
     fields: t => ({
@@ -17,48 +17,41 @@ builder.prismaNode("Location", {
             cursor: 'id'
         }),
         profiles: t.relatedConnection('profiles', {
-            cursor: 'id',
-            args: {
-                oldestFirst: t.arg.boolean(),
-            },
-            query: (args, ctx) => ({
-                orderBy: {
-                    createdAt: args.oldestFirst ? 'asc' : 'desc',
-                },
-            }),
+            cursor: 'id'
         }),
         trips: t.relatedConnection('trips', {
-            cursor: 'id',
-            args: {
-                oldestFirst: t.arg.boolean(),
-            },
-            query: (args, context) => ({
-                orderBy: {
-                    createdAt: args.oldestFirst ? 'asc' : 'desc',
-                },
-            }),
+            cursor: 'id'
         }),
+
+        createdAt: t.expose("createdAt", {
+            type: "Date"
+        }),
+        updatedAt: t.expose("updatedAt", {
+            type: "Date"
+        })
     }),
 })
 
 builder.queryField("locations", t =>
     t.prismaField({
         type: ["Location"],
-        resolve: async (_query: any, _parent: any, _args: any, _info: any) => prisma.location.findMany({}),
+        resolve: async (_query: any, _parent: any, _args: any, _info: any) => prisma.location.findMany({
+            ..._query
+        }),
     } as any)
 )
 
 
 builder.queryField("location", t =>
-  t.prismaField({
-    type: "Location",
-    args: {
-      id: t.arg.string({ required: true })
-    },
-    resolve: async (query, root, args) =>
-      prisma.location.findUniqueOrThrow({
-        ...query,
-        where: { id: String(args.id) }
-      })
-  })
+    t.prismaField({
+        type: "Location",
+        args: {
+            id: t.arg.string({ required: true })
+        },
+        resolve: async (query, root, args) =>
+            prisma.location.findUniqueOrThrow({
+                ...query,
+                where: { id: String(args.id) }
+            })
+    })
 )

@@ -59,7 +59,6 @@ export type LocationProfilesArgs = {
   before?: InputMaybe<Scalars['ID']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
-  oldestFirst?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 
@@ -68,7 +67,6 @@ export type LocationTripsArgs = {
   before?: InputMaybe<Scalars['ID']['input']>;
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
-  oldestFirst?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type LocationAddressesConnection = {

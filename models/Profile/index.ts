@@ -13,6 +13,13 @@ builder.prismaObject("Profile", {
     location: t.relation("location"),
     email: t.exposeString("email", { nullable: true }),
     user: t.relation("user"),
+
+    createdAt: t.expose("createdAt", {
+      type: "Date"
+    }),
+    updatedAt: t.expose("updatedAt", {
+      type: "Date"
+    })
   }),
 })
 
@@ -20,7 +27,7 @@ builder.prismaObject("Profile", {
 builder.queryField("profiles", t =>
     t.prismaField({
         type: ["Profile"],
-        resolve: async (_query: any, _parent: any, _args: any, _info: any) => prisma.profile.findMany({}),
+        resolve: async (_query: any, _parent: any, _args: any, _info: any) => prisma.profile.findMany({..._query}),
     } as any)
 )
 
