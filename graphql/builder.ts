@@ -19,14 +19,6 @@ export const builder = new SchemaBuilder<{
       Input: any;
       Output: any;
     };
-    LinkType: {
-      Input: any,
-      Output: any;
-    };
-    Links: {
-      Input: any,
-      Output: any
-    };
     DurationType: {
       Input: string,
       Output: string
