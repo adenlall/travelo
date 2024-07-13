@@ -10,7 +10,7 @@ import {
   CacheConfig,
 } from "relay-runtime";
 
-const HTTP_ENDPOINT = "http://localhost:3000/api/graphql";
+const HTTP_ENDPOINT = "https://travelos.vercel.app/api/graphql";
 const IS_SERVER = typeof window === typeof undefined;
 const CACHE_TTL = 5 * 1000; // 5 seconds, to resolve preloaded results
 

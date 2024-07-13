@@ -1,2 +1,2 @@
-schema: http://localhost:3000/api/graphql
+schema: https://travelos.vercel.app/api/graphql
 documents: '**/*.{graphql,js,ts}'
