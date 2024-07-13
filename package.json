@@ -10,9 +10,6 @@
     "build": "relay-compiler --validate && gql-gen --config codegen.ts && next build",
     "start": "next start",
     "lint": "next lint",
-    // "generate": "graphql-codegen",
-    // "relay": "relay-compiler",
-    // "codegen": "gql-gen --config codegen.ts",
     "postinstall": "prisma generate"
   },
   "prisma": {
