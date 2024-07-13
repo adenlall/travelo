@@ -7,7 +7,8 @@
   "author": "adenlall",
   "scripts": {
     "dev": "next dev",
-    "build": "relay-compiler --validate && next build",
+    "postinstall": "prisma generate",
+    "build": "relay-compiler --validate && npm run codegen && next build",
     "start": "next start",
     "lint": "next lint",
     "generate": "graphql-codegen",
