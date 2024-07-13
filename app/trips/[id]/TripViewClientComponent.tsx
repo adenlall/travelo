@@ -13,8 +13,8 @@ const Root = (props: {
     environment,
     props.preloadedQuery
   );
-
-  return <Issue queryRef={queryRef} />;
+  return <></>
+  // return <Issue queryRef={queryRef} />;
 };
 
 export default Root;
