@@ -14,7 +14,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  */
 const documents = {
     "\n        query MainViewQuery {\n            users {\n                name\n            }\n        }\n    ": types.MainViewQueryDocument,
-    "\n        query TripQuery {\n            trips {\n                id\n                title\n                description\n                location {\n                    city\n                    state\n                    country\n                }\n            }\n        }\n    ": types.TripQueryDocument,
+    "\n        query TripQuery($id: String!) {\n            trip(id: $id) {\n                id\n                title\n                description\n                location {\n                    city\n                    state\n                    country\n                }\n            }\n        }\n    ": types.TripQueryDocument,
     "query HelloUser{\n    users {\n        name\n    }\n}": types.HelloUserDocument,
 };
 
@@ -39,7 +39,7 @@ export function graphql(source: "\n        query MainViewQuery {\n            us
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n        query TripQuery {\n            trips {\n                id\n                title\n                description\n                location {\n                    city\n                    state\n                    country\n                }\n            }\n        }\n    "): (typeof documents)["\n        query TripQuery {\n            trips {\n                id\n                title\n                description\n                location {\n                    city\n                    state\n                    country\n                }\n            }\n        }\n    "];
+export function graphql(source: "\n        query TripQuery($id: String!) {\n            trip(id: $id) {\n                id\n                title\n                description\n                location {\n                    city\n                    state\n                    country\n                }\n            }\n        }\n    "): (typeof documents)["\n        query TripQuery($id: String!) {\n            trip(id: $id) {\n                id\n                title\n                description\n                location {\n                    city\n                    state\n                    country\n                }\n            }\n        }\n    "];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

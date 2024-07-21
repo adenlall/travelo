@@ -1,11 +1,13 @@
 type Address implements Node {
   address: String
+  createdAt: Date!
   id: ID!
   lat: Float
   location: Location!
   long: Float
   name: String
   postalCode: String
+  updatedAt: Date!
 }
 
 """
@@ -20,17 +22,16 @@ The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](
 """
 scalar JSONObject
 
-"""Links contains Website URL, Twitter Username and list of Links"""
-scalar Links
-
 type Location implements Node {
   addresses(after: ID, before: ID, first: Int, last: Int): LocationAddressesConnection!
   city: String!
   country: String!
+  createdAt: Date!
   id: ID!
   profiles(after: ID, before: ID, first: Int, last: Int): LocationProfilesConnection!
   state: String
   trips(after: ID, before: ID, first: Int, last: Int): LocationTripsConnection!
+  updatedAt: Date!
 }
 
 type LocationAddressesConnection {
@@ -95,10 +96,12 @@ type PageInfo {
 }
 
 type Profile {
+  createdAt: Date!
   description: String
   email: String
   id: String!
   location: Location!
+  updatedAt: Date!
   user: User!
 }
 
@@ -118,10 +121,12 @@ type Query {
 }
 
 type Trip {
+  createdAt: Date!
   description: String
   id: String!
   location: Location!
   title: String!
+  updatedAt: Date!
   users(after: ID, before: ID, first: Int, last: Int): TripUsersConnection!
 }
 
@@ -143,14 +148,14 @@ type TripsOnUsers {
 }
 
 type User {
-  description: String
+  createdAt: Date!
   email: String!
   id: String!
   name: String
   profile: Profile
   tagline: String
-  tripOnCity(city: String!): String
   trips(after: ID, before: ID, first: Int, last: Int): UserTripsConnection!
+  updatedAt: Date!
 }
 
 type UserTripsConnection {

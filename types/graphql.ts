@@ -19,19 +19,19 @@ export type Scalars = {
   DurationType: { input: any; output: any; }
   /** The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSONObject: { input: any; output: any; }
-  /** Links contains Website URL, Twitter Username and list of Links */
-  Links: { input: any; output: any; }
 };
 
 export type Address = Node & {
   __typename?: 'Address';
   address?: Maybe<Scalars['String']['output']>;
+  createdAt: Scalars['Date']['output'];
   id: Scalars['ID']['output'];
   lat?: Maybe<Scalars['Float']['output']>;
   location: Location;
   long?: Maybe<Scalars['Float']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   postalCode?: Maybe<Scalars['String']['output']>;
+  updatedAt: Scalars['Date']['output'];
 };
 
 export type Location = Node & {
@@ -39,10 +39,12 @@ export type Location = Node & {
   addresses: LocationAddressesConnection;
   city: Scalars['String']['output'];
   country: Scalars['String']['output'];
+  createdAt: Scalars['Date']['output'];
   id: Scalars['ID']['output'];
   profiles: LocationProfilesConnection;
   state?: Maybe<Scalars['String']['output']>;
   trips: LocationTripsConnection;
+  updatedAt: Scalars['Date']['output'];
 };
 
 
@@ -219,10 +221,12 @@ export type PageInfo = {
 
 export type Profile = {
   __typename?: 'Profile';
+  createdAt: Scalars['Date']['output'];
   description?: Maybe<Scalars['String']['output']>;
   email?: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   location: Location;
+  updatedAt: Scalars['Date']['output'];
   user: User;
 };
 
@@ -279,10 +283,12 @@ export type QueryUserArgs = {
 
 export type Trip = {
   __typename?: 'Trip';
+  createdAt: Scalars['Date']['output'];
   description?: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   location: Location;
   title: Scalars['String']['output'];
+  updatedAt: Scalars['Date']['output'];
   users: TripUsersConnection;
 };
 
@@ -316,19 +322,14 @@ export type TripsOnUsers = {
 
 export type User = {
   __typename?: 'User';
-  description?: Maybe<Scalars['String']['output']>;
+  createdAt: Scalars['Date']['output'];
   email: Scalars['String']['output'];
   id: Scalars['String']['output'];
   name?: Maybe<Scalars['String']['output']>;
   profile?: Maybe<Profile>;
   tagline?: Maybe<Scalars['String']['output']>;
-  tripOnCity?: Maybe<Scalars['String']['output']>;
   trips: UserTripsConnection;
-};
-
-
-export type UserTripOnCityArgs = {
-  city: Scalars['String']['input'];
+  updatedAt: Scalars['Date']['output'];
 };
 
 
@@ -356,10 +357,12 @@ export type MainViewQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type MainViewQueryQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', name?: string | null }> };
 
-export type TripQueryQueryVariables = Exact<{ [key: string]: never; }>;
+export type TripQueryQueryVariables = Exact<{
+  id: Scalars['String']['input'];
+}>;
 
 
-export type TripQueryQuery = { __typename?: 'Query', trips: Array<{ __typename?: 'Trip', id: string, title: string, description?: string | null, location: { __typename?: 'Location', city: string, state?: string | null, country: string } }> };
+export type TripQueryQuery = { __typename?: 'Query', trip: { __typename?: 'Trip', id: string, title: string, description?: string | null, location: { __typename?: 'Location', city: string, state?: string | null, country: string } } };
 
 export type HelloUserQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -368,5 +371,5 @@ export type HelloUserQuery = { __typename?: 'Query', users: Array<{ __typename?:
 
 
 export const MainViewQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"MainViewQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"users"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]} as unknown as DocumentNode<MainViewQueryQuery, MainViewQueryQueryVariables>;
-export const TripQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"TripQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"trips"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"location"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"state"}},{"kind":"Field","name":{"kind":"Name","value":"country"}}]}}]}}]}}]} as unknown as DocumentNode<TripQueryQuery, TripQueryQueryVariables>;
+export const TripQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"TripQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"trip"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"location"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"state"}},{"kind":"Field","name":{"kind":"Name","value":"country"}}]}}]}}]}}]} as unknown as DocumentNode<TripQueryQuery, TripQueryQueryVariables>;
 export const HelloUserDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"HelloUser"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"users"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]} as unknown as DocumentNode<HelloUserQuery, HelloUserQueryVariables>;

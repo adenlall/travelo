@@ -3,18 +3,22 @@
 import { useRelayEnvironment } from "react-relay";
 import { SerializablePreloadedQuery } from "../../../relay/loadSerializableQuery"
 import useSerializablePreloadedQuery from "../../../relay/useSerializablePreloadedQuery"
-import Issue from "../../../components/Trip"
+import TripQueryGraphql, { TripQuery } from "../../../__generated__/TripQuery.graphql"
+import Trip from "../../../components/Trip";
 
-const Root = (props: {
-  preloadedQuery: any;
+const Relay = (props: {
+  preloadedQuery: SerializablePreloadedQuery<
+    typeof TripQueryGraphql,
+    TripQuery
+  >;
 }) => {
   const environment = useRelayEnvironment();
   const queryRef = useSerializablePreloadedQuery(
     environment,
     props.preloadedQuery
   );
-  return <></>
-  // return <Issue queryRef={queryRef} />;
+
+  return <Trip queryRef={queryRef} />;
 };
 
-export default Root;
+export default Relay;

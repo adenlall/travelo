@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  module: "esnext",
+  moduleResolution: "bundler",
+  baseUrl: "./",
   compiler: {
     relay: {
       src: "./",

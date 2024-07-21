@@ -1,10 +1,11 @@
 import { builder } from "../../graphql/builder"
 import prisma from "../../lib/prisma"
-import "./mutations"
-import { User as GqlUser } from "../../types/graphql"
-import { PrismaFieldResolver } from "@pothos/plugin-prisma"
-import { MaybePromise } from "@pothos/core"
-import { User } from "@prisma/client/edge"
+import "./mutations";
+import "./subscription";
+// import { User as GqlUser } from "../../types/graphql"
+// import { PrismaFieldResolver } from "@pothos/plugin-prisma"
+// import { MaybePromise } from "@pothos/core"
+// import { User } from "@prisma/client/edge"
 
 builder.prismaObject("User", {
   // include: {

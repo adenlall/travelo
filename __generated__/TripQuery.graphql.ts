@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<931fd39d31296fac22e5abb9ed55f684>>
+ * @generated SignedSource<<2654e9a282422f3b846988d0ad26cb24>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -9,9 +9,11 @@
 // @ts-nocheck
 
 import { ConcreteRequest, Query } from 'relay-runtime';
-export type TripQuery$variables = Record<PropertyKey, never>;
+export type TripQuery$variables = {
+  id: string;
+};
 export type TripQuery$data = {
-  readonly trips: ReadonlyArray<{
+  readonly trip: {
     readonly description: string | null | undefined;
     readonly id: string;
     readonly location: {
@@ -20,7 +22,7 @@ export type TripQuery$data = {
       readonly state: string | null | undefined;
     };
     readonly title: string;
-  }>;
+  };
 };
 export type TripQuery = {
   response: TripQuery$data;
@@ -28,42 +30,56 @@ export type TripQuery = {
 };
 
 const node: ConcreteRequest = (function(){
-var v0 = {
+var v0 = [
+  {
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "id"
+  }
+],
+v1 = [
+  {
+    "kind": "Variable",
+    "name": "id",
+    "variableName": "id"
+  }
+],
+v2 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v1 = {
+v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "title",
   "storageKey": null
 },
-v2 = {
+v4 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "description",
   "storageKey": null
 },
-v3 = {
+v5 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "city",
   "storageKey": null
 },
-v4 = {
+v6 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "state",
   "storageKey": null
 },
-v5 = {
+v7 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -72,22 +88,22 @@ v5 = {
 };
 return {
   "fragment": {
-    "argumentDefinitions": [],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
     "name": "TripQuery",
     "selections": [
       {
         "alias": null,
-        "args": null,
+        "args": (v1/*: any*/),
         "concreteType": "Trip",
         "kind": "LinkedField",
-        "name": "trips",
-        "plural": true,
+        "name": "trip",
+        "plural": false,
         "selections": [
-          (v0/*: any*/),
-          (v1/*: any*/),
           (v2/*: any*/),
+          (v3/*: any*/),
+          (v4/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -96,9 +112,9 @@ return {
             "name": "location",
             "plural": false,
             "selections": [
-              (v3/*: any*/),
-              (v4/*: any*/),
-              (v5/*: any*/)
+              (v5/*: any*/),
+              (v6/*: any*/),
+              (v7/*: any*/)
             ],
             "storageKey": null
           }
@@ -111,21 +127,21 @@ return {
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": [],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "TripQuery",
     "selections": [
       {
         "alias": null,
-        "args": null,
+        "args": (v1/*: any*/),
         "concreteType": "Trip",
         "kind": "LinkedField",
-        "name": "trips",
-        "plural": true,
+        "name": "trip",
+        "plural": false,
         "selections": [
-          (v0/*: any*/),
-          (v1/*: any*/),
           (v2/*: any*/),
+          (v3/*: any*/),
+          (v4/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -134,10 +150,10 @@ return {
             "name": "location",
             "plural": false,
             "selections": [
-              (v3/*: any*/),
-              (v4/*: any*/),
               (v5/*: any*/),
-              (v0/*: any*/)
+              (v6/*: any*/),
+              (v7/*: any*/),
+              (v2/*: any*/)
             ],
             "storageKey": null
           }
@@ -147,16 +163,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "4e544f776f819dc9c64954b002ca30ef",
+    "cacheID": "ed7ba83b8e511095778016801fcef8cb",
     "id": null,
     "metadata": {},
     "name": "TripQuery",
     "operationKind": "query",
-    "text": "query TripQuery {\n  trips {\n    id\n    title\n    description\n    location {\n      city\n      state\n      country\n      id\n    }\n  }\n}\n"
+    "text": "query TripQuery(\n  $id: String!\n) {\n  trip(id: $id) {\n    id\n    title\n    description\n    location {\n      city\n      state\n      country\n      id\n    }\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "0ca0ec28f047f7a6bc52944642b7e1f7";
+(node as any).hash = "725a1aca582345151634bd5c12da11b7";
 
 export default node;
