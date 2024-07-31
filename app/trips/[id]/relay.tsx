@@ -18,7 +18,9 @@ const Relay = (props: {
     props.preloadedQuery
   );
 
-  return <Trip queryRef={queryRef} />;
+  return <>
+  <Trip queryRef={queryRef} />
+  </>
 };
 
 export default Relay;

@@ -4,6 +4,9 @@ const nextConfig = {
   swcMinify: true,
   module: "esnext",
   moduleResolution: "bundler",
+  images:{
+    domains:['cdn.vectorstock.com', 'pbs.twimg.com']
+  },
   baseUrl: "./",
   compiler: {
     relay: {

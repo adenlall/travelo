@@ -1,5 +1,7 @@
 {
   "jsxSingleQuote": false,
   "semi": false,
-  "arrowParens": "avoid"
+  "arrowParens": "avoid",
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindFunctions": ["clsx"]
 }

@@ -5,15 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="976d5cee-b263-42a4-a488-f77a1e92156d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/__generated__/TripsQuery.graphql.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/__generated__/UserRelayFragment.graphql.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GRAPHQL_OPERATIONS.md" beforeDir="false" afterPath="$PROJECT_DIR$/GRAPHQL_OPERATIONS.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__generated__/TripQuery.graphql.ts" beforeDir="false" afterPath="$PROJECT_DIR$/__generated__/TripQuery.graphql.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/trips/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/trips/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/login/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/graphql/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/graphql/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/trips/[id]/relay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/trips/[id]/relay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/trips/page.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/trips/relay.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Issues.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/MainView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/MainView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Trip.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Trip.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/UI/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Handles/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/sorter.js" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov-report/sorter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/context.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/queries/__generated__/hello-user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/queries/__generated__/hello-user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/User/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/models/User/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/schema.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/relay/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/relay/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/Issues.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/layout.module.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/types/gql.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/gql.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/types/graphql.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/graphql.ts" afterDir="false" />
@@ -27,9 +49,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="GraphQL File" />
         <option value="TypeScript JSX File" />
         <option value="CSS File" />
-        <option value="GraphQL File" />
       </list>
     </option>
   </component>
@@ -45,11 +67,14 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/adenlall/travelo.git&quot;,
-    &quot;accountId&quot;: &quot;5b4de318-8d23-4dd6-8ce0-5af260646328&quot;
+    &quot;accountId&quot;: &quot;b560ae7f-e134-4ca7-b4e3-e58aa1fb8090&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@apollo+client@3.8.6_graphql@16.8.1_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@apollo/client/react/hooks/useMutation.d.ts" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -71,16 +96,16 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/adenlall/code/vueflow-facebook-messenger-main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/aden/Public/next/travelos&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;/home/adenlall/flatpak-node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;/home/adenlall/flatpak-pnpm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/adenlall/code/nextjs/injury/node_modules/typescript/lib&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/aden/Public/next/travelos/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -130,10 +155,34 @@
       <workItem from="1720603164911" duration="116000" />
       <workItem from="1720862387199" duration="39000" />
       <workItem from="1721555313906" duration="2725000" />
+      <workItem from="1721596111993" duration="330000" />
+      <workItem from="1721596917605" duration="6321000" />
+      <workItem from="1721637724722" duration="9204000" />
+      <workItem from="1721651913375" duration="988000" />
+      <workItem from="1721653422213" duration="8507000" />
+      <workItem from="1722270746019" duration="784000" />
+      <workItem from="1722271569793" duration="95000" />
+      <workItem from="1722271687151" duration="49000" />
+      <workItem from="1722271754663" duration="4087000" />
+      <workItem from="1722330028384" duration="8163000" />
+      <workItem from="1722373273875" duration="7493000" />
+      <workItem from="1722428938219" duration="4531000" />
+      <workItem from="1722441657047" duration="5593000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<2654e9a282422f3b846988d0ad26cb24>>
+ * @generated SignedSource<<28758aff9a691322e854b319dfdaafc7>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -9,6 +9,7 @@
 // @ts-nocheck
 
 import { ConcreteRequest, Query } from 'relay-runtime';
+import { FragmentRefs } from "relay-runtime";
 export type TripQuery$variables = {
   id: string;
 };
@@ -22,6 +23,15 @@ export type TripQuery$data = {
       readonly state: string | null | undefined;
     };
     readonly title: string;
+    readonly users: {
+      readonly edges: ReadonlyArray<{
+        readonly node: {
+          readonly user: {
+            readonly " $fragmentSpreads": FragmentRefs<"UserRelayFragment">;
+          };
+        };
+      } | null | undefined>;
+    };
   };
 };
 export type TripQuery = {
@@ -117,6 +127,55 @@ return {
               (v7/*: any*/)
             ],
             "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "TripUsersConnection",
+            "kind": "LinkedField",
+            "name": "users",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "TripUsersConnectionEdge",
+                "kind": "LinkedField",
+                "name": "edges",
+                "plural": true,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "TripsOnUsers",
+                    "kind": "LinkedField",
+                    "name": "node",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "alias": null,
+                        "args": null,
+                        "concreteType": "User",
+                        "kind": "LinkedField",
+                        "name": "user",
+                        "plural": false,
+                        "selections": [
+                          {
+                            "args": null,
+                            "kind": "FragmentSpread",
+                            "name": "UserRelayFragment"
+                          }
+                        ],
+                        "storageKey": null
+                      }
+                    ],
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
           }
         ],
         "storageKey": null
@@ -156,6 +215,66 @@ return {
               (v2/*: any*/)
             ],
             "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "TripUsersConnection",
+            "kind": "LinkedField",
+            "name": "users",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "TripUsersConnectionEdge",
+                "kind": "LinkedField",
+                "name": "edges",
+                "plural": true,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "TripsOnUsers",
+                    "kind": "LinkedField",
+                    "name": "node",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "alias": null,
+                        "args": null,
+                        "concreteType": "User",
+                        "kind": "LinkedField",
+                        "name": "user",
+                        "plural": false,
+                        "selections": [
+                          (v2/*: any*/),
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "name",
+                            "storageKey": null
+                          },
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "email",
+                            "storageKey": null
+                          }
+                        ],
+                        "storageKey": null
+                      },
+                      (v2/*: any*/)
+                    ],
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
           }
         ],
         "storageKey": null
@@ -163,16 +282,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "ed7ba83b8e511095778016801fcef8cb",
+    "cacheID": "4af3d31da9810ffe314ef7737766a431",
     "id": null,
     "metadata": {},
     "name": "TripQuery",
     "operationKind": "query",
-    "text": "query TripQuery(\n  $id: String!\n) {\n  trip(id: $id) {\n    id\n    title\n    description\n    location {\n      city\n      state\n      country\n      id\n    }\n  }\n}\n"
+    "text": "query TripQuery(\n  $id: String!\n) {\n  trip(id: $id) {\n    id\n    title\n    description\n    location {\n      city\n      state\n      country\n      id\n    }\n    users {\n      edges {\n        node {\n          user {\n            ...UserRelayFragment\n          }\n          id\n        }\n      }\n    }\n  }\n}\n\nfragment UserRelayFragment on User {\n  id\n  name\n  email\n}\n"
   }
 };
 })();
 
-(node as any).hash = "725a1aca582345151634bd5c12da11b7";
+(node as any).hash = "5c7009435e3c69771ea6b140954829c8";
 
 export default node;

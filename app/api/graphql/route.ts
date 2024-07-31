@@ -2,6 +2,8 @@ import { createYoga } from 'graphql-yoga'
 import { createContext } from '../../../graphql/context'
 import { schema } from '../../../graphql/schema'
 
+console.log("\n\ngraphql\n");
+
 const { handleRequest } = createYoga({
     schema,
     context: createContext,

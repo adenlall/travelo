@@ -180,7 +180,7 @@ var addSorting = (function() {
             }
         }
     }
-    // adds sorting functionality to the UI
+    // adds sorting functionality to the Handles
     return function() {
         if (!getTable()) {
             return;

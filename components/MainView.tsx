@@ -21,8 +21,8 @@ export default function MainView(props: {
 
   return (
     <Suspense fallback="Loading (client side)...">
-      <h1>
-        <p>Welcome {session.data?.user.name}</p>
+      <h1 className={"bg-primary text-primary-foreground"}>
+        <p>Welcome {session.data?.user?.name}</p>
         <pre>
           {JSON.stringify(session, null, 2)}
         </pre>

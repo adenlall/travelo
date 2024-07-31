@@ -3,7 +3,7 @@ import type { Session } from "next-auth"
 
 export async function createContext() {
     const session : Session | null = await auth()
-
+    
       return {
         id:session?.user.id,
         email:session?.user.email,

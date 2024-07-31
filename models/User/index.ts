@@ -84,7 +84,7 @@ builder.queryField("me", t =>
   t.prismaField({
     type: "User",
     resolve: async (query, root, args, ctx) => {
-
+  
       if (!(await ctx).email) {
         throw new Error("You have to be logged in to perform this action")
       }
