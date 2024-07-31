@@ -4,41 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="976d5cee-b263-42a4-a488-f77a1e92156d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/__generated__/TripsQuery.graphql.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/__generated__/UserRelayFragment.graphql.ts" afterDir="false" />
+    <list default="true" id="976d5cee-b263-42a4-a488-f77a1e92156d" name="Changes" comment="Add home page">
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GRAPHQL_OPERATIONS.md" beforeDir="false" afterPath="$PROJECT_DIR$/GRAPHQL_OPERATIONS.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__generated__/TripQuery.graphql.ts" beforeDir="false" afterPath="$PROJECT_DIR$/__generated__/TripQuery.graphql.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(auth)/login/page.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/graphql/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/graphql/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/trips/[id]/relay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/trips/[id]/relay.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/trips/page.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/trips/relay.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Issues.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/MainView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/MainView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Trip.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Trip.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/UI/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Handles/Button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/lcov-report/sorter.js" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov-report/sorter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/context.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql/queries/__generated__/hello-user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/queries/__generated__/hello-user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/User/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/models/User/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relay/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/relay/environment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/Issues.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/layout.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/gql.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/gql.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/graphql.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/graphql.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,8 +136,17 @@
       <workItem from="1722330028384" duration="8163000" />
       <workItem from="1722373273875" duration="7493000" />
       <workItem from="1722428938219" duration="4531000" />
-      <workItem from="1722441657047" duration="5593000" />
+      <workItem from="1722441657047" duration="7216000" />
     </task>
+    <task id="LOCAL-00001" summary="Add home page">
+      <option name="closed" value="true" />
+      <created>1722448334292</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1722448334292</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,5 +162,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add home page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add home page" />
   </component>
 </project>
