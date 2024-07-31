@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="976d5cee-b263-42a4-a488-f77a1e92156d" name="Changes" comment="Add home page">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="976d5cee-b263-42a4-a488-f77a1e92156d" name="Changes" comment="fixe me" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -137,6 +133,7 @@
       <workItem from="1722373273875" duration="7493000" />
       <workItem from="1722428938219" duration="4531000" />
       <workItem from="1722441657047" duration="7216000" />
+      <workItem from="1722457137449" duration="499000" />
     </task>
     <task id="LOCAL-00001" summary="Add home page">
       <option name="closed" value="true" />
@@ -146,7 +143,31 @@
       <option name="project" value="LOCAL" />
       <updated>1722448334292</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add home page">
+      <option name="closed" value="true" />
+      <created>1722457224447</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1722457224447</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add home page">
+      <option name="closed" value="true" />
+      <created>1722457267030</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1722457267030</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fixe me">
+      <option name="closed" value="true" />
+      <created>1722457646531</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1722457646532</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,6 +186,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add home page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add home page" />
+    <MESSAGE value="fixe me" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixe me" />
   </component>
 </project>
