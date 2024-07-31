@@ -1,0 +1,77 @@
+.footer-home-item {
+    background: url("/_assets/mountain.png") center 25px / cover no-repeat,
+    url("/_assets/grid.png") center top / cover,
+    #ffff88;
+    transition: background 0.3s ease;
+}
+.footer-home-item:hover {
+    scale: 1.025;
+    background: url("/_assets/mountain.png") center 35px / cover no-repeat,
+    url("/_assets/grid.png") center top / cover,
+    #ffcc00;
+}
+
+.footer-about-item {
+    background: url("/_assets/paris.png") center -140px / cover no-repeat,
+    url("/_assets/grid.png") center top / cover,
+    #88ffc4;
+    transition: background 0.3s ease;
+}
+.footer-about-item:hover {
+    scale: 1.025;
+    background: url("/_assets/paris.png") center -130px / cover no-repeat,
+    url("/_assets/grid.png") center top / cover,
+    #00ffb2;
+}
+
+.footer-faq-item {
+    background: url("/_assets/camel.png") center 30px / cover no-repeat,
+    url("/_assets/grid.png") center top / cover,
+    #e397c6;
+    transition: background 0.3s ease;
+}
+.footer-faq-item:hover {
+    scale: 1.025;
+    background: url("/_assets/camel.png") center 40px / cover no-repeat,
+    url("/_assets/grid.png") center top / cover,
+    #dc82b9;
+}
+
+.footer-features-item {
+    background: url("/_assets/fuji.png") center 30px / cover no-repeat,
+    url("/_assets/grid.png") center top / cover,
+    #ffceed;
+    transition: background 0.3s ease;
+}
+.footer-features-item:hover {
+    scale: 1.025;
+    background: url("/_assets/fuji.png") center 40px / cover no-repeat,
+    url("/_assets/grid.png") center top / cover,
+    #ffa4bf;
+}
+
+.footer-contact-item {
+    background: url("/_assets/bigben.png") center 30px / cover no-repeat,
+    url("/_assets/grid.png") center top / cover,
+    #daceff;
+    transition: background 0.3s ease;
+}
+.footer-contact-item:hover {
+    scale: 1.025;
+    background: url("/_assets/bigben.png") center 40px / cover no-repeat,
+    url("/_assets/grid.png") center top / cover,
+    #9c6cff;
+}
+
+.footer-register-item {
+    background: url("/_assets/mountain.png") center 25px / cover no-repeat,
+    url("/_assets/grid.png") center top / cover,
+    #c2ff88;
+    transition: background 0.3s ease;
+}
+.footer-register-item:hover {
+    scale: 1.025;
+    background: url("/_assets/mountain.png") center 35px / cover no-repeat,
+    url("/_assets/grid.png") center top / cover,
+    #83dd48;
+}
